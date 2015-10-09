@@ -31,5 +31,5 @@
 ## 4 MS2
 
 1. POC: formales & Umfang 
-2. Methodischer Rahmen: geeignetes Vorgehensmodell mit WBA ANforderungen zusammenbringen?
+2. Methodischer Rahmen: geeignetes Vorgehensmodell mit WBA Anforderungen zusammenbringen?
 
