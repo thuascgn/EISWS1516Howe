@@ -24,7 +24,7 @@
 
 1. Implementierungsfragen in Einklang bringen
  * Kursziel: https://www.medieninformatik.th-koeln.de/w/Entwicklungsprojekt_interaktive_Systeme#Zielsetzung (Punkt 3)
- * atuelle persönlichen Standpunkt bzgl Zielsetzung
+ * atueller persönlicher Standpunkt bzgl Zielsetzung
  * Techn/Implmentierung https://www.medieninformatik.th-koeln.de/w/Entwicklungsprojekt_interaktive_Systeme#Technische_Randbedingungen in Einklang bringen
 
 
