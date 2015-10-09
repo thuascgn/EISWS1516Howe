@@ -1,6 +1,12 @@
 
 # Themen & Fragen
 
+
+## 0 Verwaltung
+
+1. kann im wiki zzt keine Projektseite erstellen, sollten wir klären
+
+
 ## 1 Zielsetzung
 
 1. Attribute zur besseren Definition bzgl Gebrauchstauglichkeit & Funktionalität
