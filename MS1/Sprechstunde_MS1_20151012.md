@@ -10,6 +10,7 @@
 ## 1 Zielsetzung
 
 1. Attribute zur besseren Definition bzgl Gebrauchstauglichkeit & Funktionalität
+
  * oder wird das über Themen in MS2 geklärt?
 
 
@@ -28,8 +29,26 @@
  * Techn/Implmentierung https://www.medieninformatik.th-koeln.de/w/Entwicklungsprojekt_interaktive_Systeme#Technische_Randbedingungen
 
 
+A: .net > kein Support
++ verargumentieren
+
 ## 4 MS2
 
 1. POC: formales & Umfang 
 2. Methodischer Rahmen: geeignetes Vorgehensmodell mit WBA Anforderungen zusammenbringen?
+
+
+# Rückmeldung
+
+1. Anwendungslogik & Verteilung
+ * gut
+2. Nutzermodellierung
+ * Nutzermodelle ausdifferenzieren
+ * ggf Nutzungcontext verändern 
+3. Implementierung
+ * ok, argumentieren in Projektbegründungen
+ * kein Support durch Betreuer
+
+
+
 
