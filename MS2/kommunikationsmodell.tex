@@ -1,0 +1,30 @@
+\chapter{Kommunikationsmodel}
+
+\begin{comment}
+Im Kommunikationsmodell muss ersichtlich sein, welche Informationen zwischen Nutzern in verschiedenen Rollen über das System ausgetauscht werden sollen. Dabei kann es auch wichtig sein die Reihenfolge der Kommunikationsvorgänge zu spezifizieren. 
+\end{comment}
+
+
+\section{Steuerungsclient}
+\begin{itemize}
+\item erhält Information vom Verwaltsdienst zum Systemzustand:\\
+welche Absender aktuell sind wie lange im System
+\item teilt dem Verwaltungsclient (über Verwaltungsdienst) die Priorisierung mit:\\
+nach Eingangsdatum (FIFO), Absender, ggf Anzahl/Absender
+\end{itemize}
+
+\section{Verwaltungsclient}
+\begin{itemize}
+\item erhält aktuelle Geschäftsobjekte vom Verwaltungsdienst
+\item gibt vervollständigtes Geschäftsobjekt an Verwaltungsdienst zurück
+\item gibt unvollständiges Geschäftsobjekt an Fachclient (über Verwaltungsdienst)
+\end{itemize}
+
+
+\section{Fachclient}
+\begin{itemize}
+\item erhält unvollständiges Geschäftsobjekt von Verwaltungsclient (über Verwaltungsdienst)
+\item gibt vervollständigtes Geschäftsobjekt an Verwaltungsdienst zurück
+\end{itemize}
+
+\section{•}

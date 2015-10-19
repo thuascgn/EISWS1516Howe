@@ -1,0 +1,63 @@
+\documentclass[11pt,oneside,a4paper,notitlepage]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[margin=1.25cm]{geometry}
+
+%kommentare, zitate, quellcode
+\usepackage{verbatim}
+%\fontfamily{sfdefault}
+\renewcommand{\familydefault}{\sfdefault}
+%
+\usepackage{graphicx}
+%fuer tabellen
+\usepackage{tabularx}
+\usepackage{tabulary}
+%referenzen und links
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=false,
+hidelinks=true
+}
+%
+
+%
+\newcommand{\brand}{TAARs }
+%
+\newcommand{\anm}[1]{\begin{comment} #1 \end{comment} }
+%
+% - - - - - - - - - - - - - - - - - - 
+%
+\begin{document}
+
+
+\begin{center}
+\Large{EIS WS1516 - Meilenstein 2}\\[3mm]
+\normalsize{Verteiltes Training einer automatisierten Dokumentenattributierung}\\[3mm]
+\normalsize{Tim Howe}
+\end{center}
+
+\brand - Verteilte Group- Middleware zum Training einer automatisierten Attributierung von Rechnungen
+
+
+\tableofcontents
+
+
+\newpage
+
+\input{./systembeschreibung.tex}
+\input{./zielhierarchie.tex}
+\input{./marktrecherche.tex}
+\input{./domaenenrecherche.tex}
+\input{./alleinstellungsmerkmale.tex}
+\input{./methodischerrahmen.tex}
+\input{./kommunikationsmodell.tex}
+\input{./risiken.tex}
+\input{./pocs.tex}
+\input{./prozess.tex}
+\input{./architekturdiagram.tex}
+\input{./projektplan.tex}
+\input{./projektbegruendungen.tex}
+
+
+\end{document}
