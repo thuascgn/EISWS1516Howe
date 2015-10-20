@@ -5,9 +5,7 @@ Die Projektbegründungen sind jene Begründungen, die Bezug nehmen auf jegliche 
 \end{comment}
 
 
-
 \section{Implementierung}
-
 Die Entscheidung der Implementierungsumgebung wird aus den strategischen Zielen \ref{sec:zielhierarchie-strategisch}
 sowie Punkt 3 der Kursziele abgeleitet, der da lautet:
 \begin{verbatim}
@@ -19,36 +17,24 @@ Zwischenschritt bei Erstellung einer solchen Projektarbeit zu erreichen.
 \end{verbatim}
 %Quelle: \small{https://www.medieninformatik.th-koeln.de/w/Entwicklungsprojekt_interaktive_Systeme, abgerufen am 13.10.2015}
 \noindent
-\begin{comment}
-%%%wilde herleitung :)
-Ausgangszustand: aktuelle Situation des Teilnehmenden\\
-Zielzustand: Punkte 1, 2 und 3 der Kurszielsetzung 
-Erfolg: Evaluation des Projektes anhand des Erfüllungsgrades der Kursziele\\
-Punkt 3 der Kursziele lässt sich als Schnittstelle des Teilnehmers zu potentiellen Arbeitgebern
-definieren an welche der Kursteilnehmer die Parameter seiner Fähigkeiten an den Arbeitgeber übergibt, 
-diese auf Kompatibilität geprüft werden und bei hinreichender Übereinstimmung eine Zusammenarbeit zustande kommt.\\
-\end{comment}
 
 Daraus folgt die Erkenntnis das eine fachliche und technologische Annäherung des Projekts an den antizipierten beruflichen Kontext das Ausmaß der Zielerfüllung des Kurses erhöht
-% und \item je genauer der berufliche Kontext antizipiert werden kann, desto besser kann das Projekt diesem angenähert werden.\end{enumerate}
 
 \paragraph{beruflicher technologischer Kontext}
 
-Im beruflichen Kontext wird für Windows Desktop und Windows Server im Stack .NET, c\n#, MSSql entwickelt.
+Im beruflichen Kontext wird für Windows Desktop und Windows Server im Stack .NET, \verb+c#+, MSSql entwickelt.
 
-
-\paragraph{Contra}
+\paragraph{Risiken}
 Eine Entwicklung im og Kontext würde folgende Nachteile mit sich bringen:
-
 \begin{enumerate}
 \item fehlende Unterstützung bei Implementierung durch Kursbetreuer
 \item fehlende Portierbarkeit der Komponenten
 \item ...
 \end{enumerate}
-
+\noindent
 
 %@todo ggf raus
-\paragraph{Pro}
+\paragraph{Chancen}
 
 \begin{enumerate}
 \item höhere Bewegungssicherheit im beruflich relevanten technologischen Kontext
@@ -62,11 +48,30 @@ bei Bedarf einzelne Systemkomponenten in einem anderen Kontext zu implementieren
 %
 %
 \section{Objektbereich}
-
-Aus der \nameref{sec:domaene-strukturierungsgrad} und der Punkt 1 und 2 der \nameref{sec:zielhierarchie-strategisch} folgt
-die Entscheidung das im Rahmnen dieses Projekts der Objektbereich auf den Dokumenttyp Rechnung eingegrenzt wird.
+Aus der \nameref{sec:domaene-strukturierungsgrad} sowie Punkt 1 und 2 der \nameref{sec:zielhierarchie-strategisch} folgt
+die Entscheidung das im Rahmen dieses Projekts der Objektbereich auf den Dokumenttyp Rechnung eingegrenzt wird.
 
 
 \section{Nutzermodelle}
+Auf die Rückmeldung der Betreuer, siehe \href{https://github.com/thuascgn/EISWS1516Howe/blob/master/MS1/Sprechstunde_MS1_20151012.md}{vom 12.10.2015, Punkt Rückmeldung}, den MCI relevanten Anteil zu erhöhen wird folgendermaßen reagiert:
+
+%
+\paragraph*{Variante 1: Nutzermodelle spezialisieren}\\
+Eine Spezialisierung der Nutzermodelle würde einen Konflikt mit den strategischen Zielen bedeuten \ref{sec:zielhierarchie-strategisch} die eine möglichst breite wirtschaftliche Anwendungsdomäne verlangt.\\
+Zudem werden auch in spezialisierteren Anwendungsgebieten allgemeingültige Objektbereiche verarbeitet, siehe \ref{sec:codia_hochschulen}{quelle: codia an hochschulen}.
+
+%
+\paragraph*{Variante 2: Nutzungsmodelle erhöhen}\\
+Um den MCI Anteil über zusätzliche Funktionen(?)/Nutzungsmodelle zu erhöhen muss ein Modell ausserhalb derer in \href{}{Anwendungsdomaene Nutzung} betrachteten gefunden werden. Dies böte die Chance eine größere Bandbreite der Nutzerinteraktion und 
+Nutzungskontexte zu bearbeiten, bärge jedoch die Risiken des zusätzlichen Entwicklungsaufwandes für einen andersartigen Client
+sowie ggf. erhöhte Planungsunsicherheit aufgrund der Nutzung von weniger geübten Technologien.
+
+%
+\paragraph*{Entscheidung}
+Die Entscheidung fällt zugunsten der Variante 2, die in \href{sec:systembeschreibung_steuerungsclient}{Systembeschreibung} umschrieben
+und in die Artefakte aufgenommen wird.
+
+
+\section{Vorgehensmodell}
 
 

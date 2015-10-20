@@ -8,16 +8,25 @@ Risiken können Ereignisse sein, die den Projektverlauf auf eine bestimmte Art u
 
 %
 \section{Architektur}
+
+
+\paragraph*{Zugriffsstruktur \& Steuerung}
+
+Es muss eine Struktur gefunden werden mit der die folgende Funktionalitäten unabhängig voneinander 
+realisiert werden können:
 \begin{enumerate}
-\item Paradigma das Lose Kopplung unterstützt 
-\item Steuerung der Priorisierung der Geschäftsobjekte
--> imb esten Fall unabhängig von Requests durch Clients
+\item Zugriff des Verwaltungsclients auf Geschäftsobjekte
+\item Übergabe der Geschäftsobjekte an den Fachclient
+\item Steuerung der Priorisierung der Geschäftsobjekte\\
+
 \end{enumerate}
 
+%zugriffs struktur der clients auf Geschäftsobjekte: Paradigma das Lose Kopplung unterstützt -- bestenfalls unabhängig von Requests durch Clients
 %
-\section{Technisch}
-\begin{enumerate}
-\item Mobiler Client
+
+
+\paragraph*{Steuerungsclient}
+
 \begin{enumerate}
 \item kommunikation zu steuerungskomponente im Verwaltungsdienst
 \item Implementierung von interaktionsparadigmen (?)
@@ -25,8 +34,10 @@ Risiken können Ereignisse sein, die den Projektverlauf auf eine bestimmte Art u
 \item 
 \end{enumerate}
 
-
-
+%
+\paragraph*{Regel-Engine}
+Es muss eine Regelform entwickelt werden die die strategischen Ziele 1 + 2 erfüllt.
+Definition und Speicherung des Regelobjekts sowie Anwendung der Regeln auf Geschäftsobjekte.
 
 
 \begin{comment}
