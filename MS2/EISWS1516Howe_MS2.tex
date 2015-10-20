@@ -2,7 +2,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
-\usepackage[margin=1.25cm]{geometry}
+\usepackage[margin=1.5cm]{geometry}
 
 %kommentare, zitate, quellcode
 \usepackage{verbatim}
@@ -13,18 +13,29 @@
 %fuer tabellen
 \usepackage{tabularx}
 \usepackage{tabulary}
+%
+%formatierung listen
+\let\oldenumerate\enumerate
+\renewcommand{\enumerate}{
+  \oldenumerate
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}
+
+%
 %referenzen und links
 \usepackage{hyperref}
 \hypersetup{
 colorlinks=false,
-hidelinks=true
+hidelinks=false
 }
 %
 
 %
 \newcommand{\brand}{TaARs }
 %
-\newcommand{\anm}[1]{\begin{comment} #1 \end{comment} }
+%\newcommand{\anm}[1]{\\ \begin{comment} #1 \end{comment}\\ }
 %
 % - - - - - - - - - - - - - - - - - - 
 %
@@ -47,15 +58,15 @@ hidelinks=true
 
 \input{./systembeschreibung.tex}
 \input{./zielhierarchie.tex}
-\input{./marktrecherche.tex}
 \input{./domaenenrecherche.tex}
+\input{./marktrecherche.tex}
 \input{./alleinstellungsmerkmale.tex}
-\input{./risiken.tex}
-\input{./pocs.tex}
-\input{./methodischerrahmen.tex}
 \input{./prozess.tex}
 \input{./kommunikationsmodell.tex}
 \input{./architekturdiagram.tex}
+\input{./risiken.tex}
+\input{./pocs.tex}
+\input{./methodischerrahmen.tex}
 \input{./projektplan.tex}
 \input{./projektbegruendungen.tex}
 \input{../div/quellen.tex}
