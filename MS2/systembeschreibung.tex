@@ -1,10 +1,66 @@
 \chapter{Systembeschreibung}
-Ein alggemeine Beschreibung der wichtigsten Eigenschaften des \brand , detailierte Beschreibungen folgen in den 
+Ein allgemeine Beschreibung der wichtigsten Eigenschaften des \brand , detaillierte Beschreibungen folgen in den 
 zugehörigen Kapiteln
 
-\section{funktionale Komponenten}
+%
+\section{Komponenten}
+
+\paragraph*{Verwaltungsserver}
+
+\begin{enumerate}
+\item importiert Rohdaten, erzeugen des Geschäftsobjekts
+\item prüft Rohdaten auf Vollständigkeit, vorhandene Regeln, falls eine vollständige Regel 
+\begin{enumerate}
+\item vorliegt: Übergabe des Geschäftsobjekts an den Regel-Server
+\item nicht vorliegt: Übergabe des Geschäftsobjekt an einen Verwaltungsclient
+\end{enumerate}
+\item erhält vervollständigte Geschäftsobjekte von Verwaltungs- und Fachclient
+\item gibt Informationen zum Systemzustand an Steuerungsclient
+\end{enumerate}
+
+%
+\paragraph*{Verwaltungsclient}
+
+\begin{enumerate}
+\item Windows Desktop Client
+\item erhält unvollständige Geschäftsobjekte vom Verwaltungsserver
+\item vervollständigt diese Geschäftsobjekte
+\item sendet vollständige Geschäftsobjekte an Verwaltungsserver
+\item sendet unvollständige Geschäftsobjekte an Fachclient
+\item verwaltet angelegte Regeln
+\end{enumerate}
+
+%
+\paragraph*{Fachclient}
+\begin{enumerate}
+\item Windows Desktop Client
+\item funktionale Untermenge des Verwaltungsclients
+\item erhält unvollständige Geschäftsobjekte vom Verwaltungslcient
+\item sendet vollständige Geschäftsobjekte an Verwaltungsserver
+\end{enumerate}
+
+%
+\paragraph*{Steuerungsclient}
+
+\begin{itemize}
+\item erhält Informatinen zum Systemzustand vom Verwaltungssserver
+\item übergibt Priorisierungskommandos an Verwaltungsserver
+\end{itemize}
+
+%
+\paragraph*{Regel-Server}
+\begin{enumerate}
+\item erhält Geschäftsobjekt von Veraltungsserver
+\item berechnet die Anwendung der Regel auf das Geschäftsobjekt
+\item exportiert das Ergebnis
+\end{enumerate}
 
 
-\section{Akteure}
+%
+\section{Nutzerrollen}
 
-\section{•}
+
+
+\section{Geschäftsobjekt}
+Das verarbeitete Geschäftsobjekt besteht aus den Rohdaten einer Rechnung, den zugehörigen Metadaten und einer zugewiesenen Regel für
+dieses Geschäftsobjekt.
