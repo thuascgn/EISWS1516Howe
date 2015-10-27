@@ -1,0 +1,78 @@
+\documentclass[11pt,oneside,a4paper,notitlepage]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[margin=1.5cm]{geometry}
+
+%kommentare, zitate, quellcode
+\usepackage{verbatim}
+%\fontfamily{sfdefault}
+\renewcommand{\familydefault}{\sfdefault}
+%
+\usepackage{graphicx}
+%fuer tabellen
+\usepackage{tabularx}
+\usepackage{tabulary}
+%
+%formatierung listen
+\let\oldenumerate\enumerate
+\renewcommand{\enumerate}{
+  \oldenumerate
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}
+
+%
+%referenzen und links
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+hidelinks=false
+}
+%
+
+%
+\newcommand{\brand}{TaARs }
+%
+%\newcommand{\anm}[1]{\\ \begin{comment} #1 \end{comment}\\ }
+%
+% - - - - - - - - - - - - - - - - - - 
+%
+\begin{document}
+
+
+\begin{center}
+\Large{EIS WS1516 - Meilenstein 2}\\[3mm]
+\normalsize{Verteiltes Training einer automatisierten Dokumentenattributierung}\\[3mm]
+\normalsize{Tim Howe}
+\end{center}
+%\brand - Verteilte Group- Middleware zum Training einer automatisierten Attributierung von Rechnungen
+
+
+\tableofcontents
+
+
+\newpage
+
+\begin{comment}
+Die Projektbegründungen sind jene Begründungen, die Bezug nehmen auf jegliche Entscheidungen, die im Projekt getroffen werden. Es sind somit projektspezifische Begründungen. Darin sollten Alternativen abgewägt werden und Inhalte auf den Punkt gebracht werden, sodass "Totes Wissen" eliminiert wird. Ein roter Faden sollte ersichtlich sein. Als Referenz dienen jeweilige Artefakte, die in dem Projekt entwickelt worden sind und demnach begründet werden müssen. 
+\end{comment}
+
+
+\newpage
+\input{./doc/methodischerrahmen.tex}
+\newpage
+\input{./doc/zielhierarchie.tex}
+\newpage
+\input{./doc/anforderungsermittlung.tex}
+%\newpage
+%\input{./doc/*.tex}
+\newpage
+\input{./doc/weiteres.tex}
+
+
+%
+%
+%
+\end{document}
