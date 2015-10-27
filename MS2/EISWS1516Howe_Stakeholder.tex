@@ -1,0 +1,98 @@
+\documentclass[11pt,oneside,a4paper,notitlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[margin=1.5cm]{geometry}
+
+%kommentare, zitate, quellcode
+\usepackage{verbatim}
+%\fontfamily{sfdefault}
+\renewcommand{\familydefault}{\sfdefault}
+%
+\usepackage{graphicx}
+%fuer tabellen
+\usepackage{tabularx}
+\usepackage{tabulary}
+%
+%formatierung listen
+\let\oldenumerate\enumerate
+\renewcommand{\enumerate}{
+  \oldenumerate
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}
+
+%
+%referenzen und links
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=false,
+hidelinks=false
+}
+%
+% 
+\renewcommand{\arraystretch}{1.5}
+%
+
+\begin{document}
+
+\section{Stakeholder}
+
+Aus der Domaenen- und Marktrecherche lassen sich die folgenden Stakeholder identifizieren: Scanner, Erfasser, Verwaltungsangestellte, Fachangestellte und Prozessverantwortliche bzw. Entscheider für die Verwaltungsabteilung oder eine Fachabteilung.\\
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm} |}
+\hline
+% Erfordernis, 
+Bezeichnung & Beziehung & Merkmal & Erwartung \\
+\hline 
+Scanner & & & \\
+\hline 
+Erfasser & & & \\
+\hline
+Verwaltungsangestellte & Interesse & Ausgabe &
+ Information für einzelne Verwaltungs- und Verarbeitungsprozesse fokussiert\\
+%
+ & Anpruch & Ausgabe & 
+ Überblick über den Gesamtzustand\\
+%
+\hline
+Fachangestellte & Anspruch & Ausgabe &
+ Informationsmenge auf Ihren Fachbereich fokussiert\\
+  & Interesse & Eingabe &
+  \\
+%
+\hline
+\parbox[t]{3cm}{Fach- und\\Verwaltungsangestellte} & Anrecht & Dokumente &
+ Reduktion der zu verarbeitenden Menge bei gleichbleibender Produktivität\\
+ & Interesse & Verarbeitungsschritte &
+ Reduktion\\
+ & Anrecht & Abstimmung mit Kollegen &
+ Reduktion des Aufwands fuer Abstimmung \\
+%
+\hline
+Entscheider  &	Anspruch		&	Prozesszustand	&
+Entscheidungsrelevante Informationen zu erhalten\\
+%
+ 			& Anspruch & Prozesssteuerung &
+flexibel, zeitnah und wirkungsvoll in Abläufe eingreifen\\
+%
+ & Interesse & \parbox[t]{4cm}{Schnittstellen zw\\Angestellten und System} & 
+produktive Nutzung\\
+ & Interesse & Schnittstellen zw Angestellten &
+ effizienter, fehlerarmer Informationsfluss\\
+%
+\hline
+
+\end{tabular}
+
+\end{center}
+
+
+
+
+
+
+\end{document}
+

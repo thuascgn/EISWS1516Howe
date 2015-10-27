@@ -1,0 +1,90 @@
+\documentclass[11pt,oneside,a4paper,notitlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[margin=1.5cm]{geometry}
+
+%kommentare, zitate, quellcode
+\usepackage{verbatim}
+%\fontfamily{sfdefault}
+\renewcommand{\familydefault}{\sfdefault}
+%
+\usepackage{graphicx}
+%fuer tabellen
+\usepackage{tabularx}
+\usepackage{tabulary}
+%
+%formatierung listen
+\let\oldenumerate\enumerate
+\renewcommand{\enumerate}{
+  \oldenumerate
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}
+
+%
+%referenzen und links
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=cyan,
+urlcolor=cyan,
+hidelinks=false
+}
+%
+% 
+\renewcommand{\arraystretch}{1.5}
+%
+
+\begin{document}
+%
+
+\section{Zielhierarchie}
+\label{cha:zielhierarchie}
+
+\begin{comment}
+Eine Zielhierarchie lässt sich in drei Ebenen strukturieren.
++ strategische Ziele sind Ziele, die auf langfristige Sicht erreicht werden sollen. 
+	Strategische Ziele beantworten die Frage "Was soll erreicht werden?"
++ taktische Ziele sind Ziele, die auf mittelfristige Sicht erreicht werden sollen.
+	Taktische Ziele beantworten die Frage "Wie soll es erreicht werden?"
++ operative Ziele sind Ziele, die auf kurzfristige Sicht erreicht werden sollen.
+	Operative Ziele beantworten die Frage "durch welche Aktivitäten soll es erreicht werden?" 
+Die Zielpriorisierung sollte sich durch die verwendeten Verben (muss,soll,kann) ausdrücken. 
+\end{comment}
+
+
+\subsection{Strategisch}
+\label{sec:zielhierarchie-strategisch}
+
+Für das Projekt soll ein Anwendungskontext gefunden werden der eine hohe wirtschaftliche Relevanz aufweist. Dies bezieht sich insbesondere auf den zu verarbeitenden Objektbereich des Systems welcher einen Komplexitätsgrad erreichen soll der fachlich relevant und im Projektrahmen beherrschbar ist.\\
+Die Verwaltungs- und Fachangestellten müssen vom Ballast repetitiver Aufgaben befreit werden um so Ressourcen für anspruchsvollere Aufgaben freisetzen. Bei der Lösung müssen die Bedürfnisse der Entscheider an einen veränderten oder neuen Prozess berücksichtigt werden.\\
+Bei der prototypischen Realisierung sollen bezüglich Implementierungstechnologien möglichst viele im antizipierten beruflichen Kontext relevanten Erfahrungen gesammelt werden.
+
+
+%
+\subsection{Taktisch}
+\label{sec:zielhierarchie-taktisch}
+
+Die Auswahl des Anwendungskontextes und des Objektbereichs soll aus der Analyse der Domänenrecherche, der Marktrecherche sowie der Alleinstellungsmerkmale erfolgen.\\
+Den Verwaltungs- und Fachangestellten soll ein System zur teilweisen Automatisierung von stark repetitiven und intellektuell
+wenig anspruchsvollen Aufgaben zur Verfügung gestellt werden. Dabei sollen bisher bestehende Aufgaben zu einem Teil durch Verbesserung und Überwachung der Automatisierung ersetzt werden.\\
+
+
+%
+\subsection{Operational}
+\label{sec:zielhierarchie-operational}
+
+Bei der Domänenrecherche müssen die verarbeiteten Objekte, dh. Dokumentenklassen, berücksichtigt und hinsichtlich Ihrer Komplexität 
+und wirtschaftlichen Relevanz eingeordnet werden.\\
+Das Automatisierungspotential soll mittels einer deskriptiven Aufgabenanalyse und unter Berücksichtigung der Domänen- und Marktrecherche identifiziert werden.\\ 
+
+
+
+
+
+
+%
+\end{document}
+
