@@ -1,0 +1,63 @@
+\documentclass[11pt,oneside,a4paper,notitlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[margin=1.5cm]{geometry}
+
+%kommentare, zitate, quellcode
+\usepackage{verbatim}
+%\fontfamily{sfdefault}
+\renewcommand{\familydefault}{\sfdefault}
+%
+\usepackage{graphicx}
+%fuer tabellen
+\usepackage{tabularx}
+\usepackage{tabulary}
+%
+%formatierung listen
+\let\oldenumerate\enumerate
+\renewcommand{\enumerate}{
+  \oldenumerate
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}
+
+%
+%referenzen und links
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=cyan,
+urlcolor=cyan,
+hidelinks=false
+}
+%
+% 
+\renewcommand{\arraystretch}{1.5}
+%
+
+\begin{document}
+%
+\section{Problemszenario - Verwaltungsverantwortlicher}
+
+
+\textbf{Titel: }\\
+Einsicht und Steuerung von Verwaltungsvorgängen\\
+\textbf{Personen: }\\
+Fr. Tichy, Abteilungsverantwortliche der Buchhaltung\\
+Hr. Ion, Abteilungsverantworlicher der Marketingabteilung\\[1cm]
+\noindent
+\textbf{Narrativ: }\\
+Zwischen zwei Besprechungen in der neuen Zweigstelle hat Fr. Tichy noch Zeit für eine kurzfristigen Telefonkonferenz mit drei Kollegen 
+aus der Buchhaltung. In dieser bespricht Sie mit den Kollegen wie die Abteilung das am Tag zuvor aktualisierte Excelsheet nutzen wird  um endlich einen aktuelleren Einblick in den Status des Dokumenteneingangs zu erhalten. Es gehört zu Ihrem Verantwortungsbereich regelmäßig der Geschäftsführung zum aktuellen Status der Buchhaltung zu berichten.\\
+Nach der Besprechung hat sie noch ein par Minuten Zeit und schaut noch kurz in Ihren EMail Posteingang. Sie öffnet eine der vielen ungelesenen Mails und liest das Hr Ion vom Marketing sie bittet die Rechnungen einer Promotionagentur schnell weiterleiten zu lassen. Deren Buchhaltung habe sich schon bei ihm gemeldet und er wolle Sie nicht weiter warten lassen. Sie leitet diese an zwei Kollegen 
+mit einer Bitte zur zeitnahen Bearbeitung weiter und hofft das diese die EMail auch möglichst bald lesen. 
+Da der Import der Dokumente in das Buchhaltungssystem zur Zeit noch manuell läuft wird standardmäßig auch einfach nach Dokumenteneingang bearbeitet.\\
+Sie erhält solche Anfragen häufig von den Kollegen der Fachabteilungen und teilweise sogar direkt von der Geschäftsführung. Je nachdem wie gerade die Projektstati aussehen werden die Dokumente bestimmter Firmen bevorzugt bearbeitet oder zurückgestellt.
+
+
+
+%
+\end{document}
+
