@@ -1,0 +1,99 @@
+\documentclass[11pt,oneside,a4paper,notitlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[margin=1.5cm]{geometry}
+
+%kommentare, zitate, quellcode
+\usepackage{verbatim}
+%\fontfamily{sfdefault}
+\renewcommand{\familydefault}{\sfdefault}
+%
+\usepackage{graphicx}
+%fuer tabellen
+\usepackage{tabularx}
+\usepackage{tabulary}
+%
+%formatierung listen
+\let\oldenumerate\enumerate
+\renewcommand{\enumerate}{
+  \oldenumerate
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}
+
+%
+%referenzen und links
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=cyan,
+urlcolor=cyan,
+hidelinks=false
+}
+%
+% 
+\renewcommand{\arraystretch}{1.5}
+%
+
+\begin{document}
+%
+\section{Risiken}
+%
+Im folgenden werden Ereignisse, Situationen und Bedingungen beschrieben die den Projekterfolg maßgeblich negativ beeinflussen oder gefährden können, sowie Reaktionen oder präventive Maßnahmen... Für wichtige technische Risiken wird auf die Spezifikation des zugehörigen Proof of Concepts verwiesen.
+
+
+\subsection{Organisatorisch}
+
+
+\paragraph{Teilaufgaben}\\
+Es besteht die Gefahr sich in stark fragmentierten Teilaufgaben zu verlieren und so eventuell mit hohem Resourceneinsatz wenig Projektfortschritt oder nur geringe Artefaktsubstanz zu erhalten.\\
+Präventionsmaßnahme: Aufgaben werden mit zugehörigen Eintrag im Projektplan und klarem Artefaktbezug erledigt. Der Projektplan wird wie die im Projekt eingesetzte Anwendungssoftware als Werkzeug zum Projektfortschritt genutzt.
+
+\paragraph{Artefakte}
+Bei der Erstellung eines Artefakts besteht die Möglichkeit das spontan im Arbeitsprozess eigentlich zwei oder mehr Varianten bearbeitet und evaluiert werden. Das finale Artefakt zeigt jedoch
+nur das Ergebnis dieses Prozesses mit der Konsequenz das Abwägungen im Erstellungsprozess undokumentiert bleiben.\\
+Präventionsmaßnahme: Diese Variationen sollen schriftlich oder bei hinreichender Trennschärfe als separates Artefakt festgehalten werden und in die Projektbegründungen aufgenommen werden.
+
+%
+\paragraph{Projektbegründungen}
+Bei der Erstellung der Artefakte besteht die Gefahr der Entkopplung von Artefakt- und Dokumentationsfortschritten wodurch die Qualität der Argumentation, der 'rote Faden', leidet.\\
+Präventionsmaßnahme: Es muss darauf geachtet werden das einem Artefakt- sehr zeitnah ein Dokumentationsfortschritt folgt und umgekehrt.
+
+
+\paragraph{Beratungstermine}\\
+Es besteht das Risiko das Beratungstermine, insbesondere diese mit Teilnahme eines Professors, aufgrund von Terminschwierigkeiten oder unzureichendem Status von Artefakten
+nicht adäquat wahrgenommen werden können.\\
+Präventionsmaßnahme: Vor jedem Beratungstermin prüfen ob bei diesem und insbesondere dem potentiell nächsten Beratungstermin Anwesenheit eines Professors erwünscht ist und
+welcher Artefaktfortschritt für eine möglichst hochwertige Rückmeldung der Betreuer und Professoren notwendig ist.
+
+
+%
+\subsection{Konzeptionell}
+
+
+%
+\subsection{Technisch}
+
+\paragraph{Nachrichtendienst}\\
+Die Nutzungsbedürfnisse der Buchhaltungsverantwortlichen sind davon abhängig das Nachrichten bei Bedarf priorisiert werden können.
+Der Umgang mit diesem Risiko wird im Proof of Concept \href{}{Nachrichtenpriorisierung} beschrieben
+
+\paragraph{Automatisierter API Aufruf}\\
+An mehreren Stellen ist es für den Informationsfluss wichtig das automatisiert, dh. ohne primäre Nutzerintention, eine API aufgerufen wird.
+Der Umgang mit diesem Risiko wird im Proof of Concept \href{}{PoC API Aufruf} beschrieben
+
+\paragraph{Regel Engine}\\
+Die Funktionalität der Regel Engine ist davon abhängig das automatisiert Dateien eingelesen, deren Inhalt verarbeitet und in eine neue Datei geschrieben werden.
+Der Umgang mit diesem Risiko wird im Proof of Concept \href{}{PoC Regelengine} beschrieben.
+
+\paragraph{Implementierung der Clients (? Dienstnehmer)}
+Da in der Anwendungsdomäne zum überwiegenden Teil an Büroarbeitsplätzen mit PCs und dem Betriebssystem Windows gearbeitet wird muss die Software der Clients(Dienstnehmer?), möglichst
+nativ, für Windows entwickelt werden.
+
+
+
+
+\end{document}
+
