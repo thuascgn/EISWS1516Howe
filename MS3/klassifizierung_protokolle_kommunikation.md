@@ -19,5 +19,3 @@
 * kardinalität
 * ...
 
-
-# Paradigmen
