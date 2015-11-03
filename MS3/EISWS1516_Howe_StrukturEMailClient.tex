@@ -1,0 +1,66 @@
+\documentclass[11pt,oneside,a4paper,notitlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[margin=1.5cm]{geometry}
+
+%kommentare, zitate, quellcode
+\usepackage{verbatim}
+%\fontfamily{sfdefault}
+\renewcommand{\familydefault}{\sfdefault}
+%
+\usepackage{graphicx}
+%fuer tabellen
+\usepackage{tabularx}
+\usepackage{tabulary}
+%
+%formatierung listen
+\let\oldenumerate\enumerate
+\renewcommand{\enumerate}{
+  \oldenumerate
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}
+
+%
+%referenzen und links
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=cyan,
+urlcolor=cyan,
+hidelinks=false
+}
+%
+% 
+\renewcommand{\arraystretch}{1.5}
+%
+
+\begin{document}
+%
+\section{EMail als Clientstruktur }
+%
+Die Nachrichten an die Fachangestellten könnten über bestehende Infrastruktur zum Email Versand zugestellt werden. Dazu würde der Buchhaltungs/Verwaltungsclient bei seiner Anfrage 
+an einen Fachangestellten einen Prozess auslösen bei dem eine Html formatierte EMail mit einem Eingabeformular an einen Fachangestellten versendet wird. Dieser kann in seinem 
+EMail Client die Nachricht öffnen, die zugehörigen Werte in das Formular eingeben und die Antwort an den Dienst zurücksenden. Der Dienst extrahiert aus der EMail Datei den
+entsprechenden Vorgang, die Attribute und Werte und konvertiert diese in das im System genutzte Format. 
+
+%
+\subsection*{Vorteile}
+
+Durch die Nutzung von EMail zur Übermittlung kann bestehende Kommunikationsinfrastruktur benutzt werden für welche die Empfänger zudem bereits zum Empfang und Versand nötige Anwendung installiert haben.
+
+%
+\subsection*{Nachteile}
+
+\begin{itemize}
+\item ggf aufwändig zu parsen
+Die Nutzung erzeugt Abhängigkeiten zur eingesetzten EMail Infrastruktur
+Desweiteren werden Html formatierte EMails und insbesondere Formulare werden von im Geschäftsumfeld genutzten Email-Clients nicht hinreichend unterstützt. \href{}{Quelle1} \href{}{Quelle2}
+EIn DIenst der 
+Dies würde aufwändige Anpassungen notwendig machen.
+
+%
+\end{document}
+
