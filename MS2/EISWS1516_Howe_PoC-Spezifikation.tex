@@ -41,18 +41,60 @@ hidelinks=false
 %
 \section{Proof of Concepts - Spezifikation}
 %
-\subsection{PoC Prio 1}
+\subsection{Nachrichtenpriorisierung}
+Es soll eine Struktur zum temporären Speichern und Ausliefern von Nachrichten gefunden werden welche die folgende Anforderungen erfüllt:
 
-\begin{table}
-
-\end{table}
+\begin{enumerate}
+\item Sie ist auf einem Webserver lauffähig
+\item auf dem passenden Webserver können zügig grundlegende API Funktionen implementiert werden
+\item Speichern von xml/json als Key-Value Par
+\item Eine Abrufpriorisierung der gespeicherten Tupel muss so möglich sein das die Anfrage eines Client mit dem Aufruf /ressource?=next die korrekten Werte erhalten
+\item es soll vermieden werden die Priorisierungsparameter serverseitig in den Aufruf zu injezieren
+\begin{enumerate}
+\item Sortierung der Werte innerhalb der Speicherstruktur
+\item Sortierung durch Veränderung der gespeicherten Werte
+\end{enumerate}
+\item 
+\item 
+\end{enumerate}
+\noindent
 %
 
-\subsection{PoC Prio 2}
+%
+\subsection{Regel Engine}
+Es soll ein prototypisches Programm entwickelt werden das die grundlegenden Funktionalitäten der Regel-Engine abbildet und folgende Anforderungen erfüllt:
+
+\begin{enumerate}
+\item es muss aus einem Eingabeordner xml und/oder json Dateien eingelesen werden
+\item die Informationen dieser Dateien werden auf eine Datenstruktur abgebildet
+\item abhängig vom Informationen wird die Datenstruktur verändert
+\item die veränderte Datenstruktur wird in einen Ausgabeordner geschrieben
+\end{enumerate}
+\noindent
 %
 
-\subsection{PoC Prio 3}
+\subsection{Desktop Clients}
 %
+Es soll ein protoypisches Programm entwickelt mit dem grundlegende Nutzungsanforderungen getestet werden und das folgende Anforderungen erfüllt:
+
+\begin{enumerate}
+\item es ist auf der Zielplatform der Clients PC mit Windows Betriebssystem lauffähig
+\item es wird möglichst nativ für die Zielplatform entwickelt
+\item es folgt dem WIMP Paradigma
+\item es sind folgende Interaktionsstile(?)/pattern mit sichtbare Auswirkung der Interaktion möglich
+\begin{enumerate}
+\item Auswahl aus Listen 
+\item Eingabe von Text
+\item Klicken von Schaltflächen
+\end{enumerate}
+\item Bonus:
+\begin{enumerate}
+\item das Programm interagiert mit einem Webserver mit HTTP Methoden GET und POST Methoden
+\end{enumerate}
+\end{enumerate}
+\noindent
+
+
 
 \end{document}
 
