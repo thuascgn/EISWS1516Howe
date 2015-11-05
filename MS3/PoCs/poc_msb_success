@@ -1,0 +1,115 @@
+SQLITE Test 1
+
+----------------------
+
+th@th-TRITON:~$ sqlite3 priotest
+SQLite version 3.8.2 2013-12-06 14:53:30
+Enter ".help" for instructions
+Enter SQL statements terminated with a ";"
+sqlite> CREATE TABLE nachrichten(id integer not null primary key auto increment, prio integer, absender text, abteilung text);
+Error: near "auto": syntax error
+sqlite> CREATE TABLE nachrichten(id integer not null primary key autoincrement, prio integer, absender text, abteilung text);
+sqlite> INSERT INTO nachrichten(id, prio, absender, abteilung) VALUES (null, 2, 'Schreibbüro Lem', 'account')
+   ...> ;
+sqlite> INSERT INTO nachrichten(id, prio, absender, abteilung) VALUES (null, 2, 'Schreibbüro Lem', 'account');
+sqlite> SELECT * FROM nachrichten
+   ...> ;
+1|2|Schreibbüro Lem|account
+2|2|Schreibbüro Lem|account
+sqlite> INSERT INTO nachrichten(id, prio, absender, abteilung) VALUES (null, 1, 'Messebau Hagen GmbH', 'account');
+sqlite> INSERT INTO nachrichten(id, prio, absender, abteilung) VALUES (null, 4, 'Diamant EDV Systeme', 'account');
+sqlite> SELECT * FROM nachrichten
+   ...> ;
+1|2|Schreibbüro Lem|account
+2|2|Schreibbüro Lem|account
+3|1|Messebau Hagen GmbH|account
+4|4|Diamant EDV Systeme|account
+sqlite> SLECT *
+   ...> ;
+Error: near "SLECT": syntax error
+sqlite> SELECT *
+   ...> FROM 
+   ...> nachrichten;
+1|2|Schreibbüro Lem|account
+2|2|Schreibbüro Lem|account
+3|1|Messebau Hagen GmbH|account
+4|4|Diamant EDV Systeme|account
+sqlite> SELECT * FROM nachrichten order by prio;
+3|1|Messebau Hagen GmbH|account
+1|2|Schreibbüro Lem|account
+2|2|Schreibbüro Lem|account
+4|4|Diamant EDV Systeme|account
+sqlite> SELECT * FROM nachrichten ORDER BY prio LIMIT 1;
+3|1|Messebau Hagen GmbH|account
+sqlite> DELETE * FROM nachrichten WHERE ID=3;
+Error: near "*": syntax error
+sqlite> DELETE * FROM nachrichten WHERE id=3;
+Error: near "*": syntax error
+sqlite> DELETE FROM nachrichten WHERE id=3;
+sqlite> SELECT * FROM nachrichten ORDER BY prio LIMIT 1;
+1|2|Schreibbüro Lem|account
+sqlite> SELECT * FROM nachrichten ORDER BY prio;
+1|2|Schreibbüro Lem|account
+2|2|Schreibbüro Lem|account
+4|4|Diamant EDV Systeme|account
+sqlite> SELECT * FROM nachrichten WHERE abteilung=account ORDER BY prio LIMIT 1;
+Error: no such column: account
+sqlite> SELECT * FROM nachrichten WHERE abteilung = 'account' ORDER BY prio LIMIT 1;
+1|2|Schreibbüro Lem|account
+sqlite> DELETE FROM nachrichten WHERE id=1
+   ...> SELECT * FROM nachrichten ORDER BY prio LIMIT 1;
+Error: near "SELECT": syntax error
+sqlite> SELECT * FROM nachrichten ORDER BY prio LIMIT 1; 
+1|2|Schreibbüro Lem|account
+sqlite> SELECT * FROM nachrichten ORDER BY; 
+Error: near ";": syntax error
+sqlite> SELECT * FROM nachrichten ORDER BY prio; 
+1|2|Schreibbüro Lem|account
+2|2|Schreibbüro Lem|account
+4|4|Diamant EDV Systeme|account
+sqlite> UPDATE nachrichten set abteilung='fachabteilung' where id=2
+   ...> ;
+sqlite> SELECT * FORM nachrichten;
+Error: near "FORM": syntax error
+sqlite> SELECT * FROM nachrichten;
+1|2|Schreibbüro Lem|account
+2|2|Schreibbüro Lem|fachabteilung
+4|4|Diamant EDV Systeme|account
+sqlite> SELECT * from nachrichten where abteilung='fachabteilung' ORDER BY prio ASC LIMIT 1;
+2|2|Schreibbüro Lem|fachabteilung
+sqlite> SELECT * FORM nachrichten;
+Error: near "FORM": syntax error
+sqlite> SELECT * FROM nachrichten;
+1|2|Schreibbüro Lem|account
+2|2|Schreibbüro Lem|fachabteilung
+4|4|Diamant EDV Systeme|account
+sqlite> UPDATE nachrichten SET prio = 4 where absender CONTAINS 'Schreibbüro*'
+   ...> ;
+Error: near "CONTAINS": syntax error
+sqlite> UPDATE nachrichten SET prio = 4 where absender CONTAINS 'Schreibb'
+   ...> ;
+Error: near "CONTAINS": syntax error
+sqlite> UPDATE nachrichten SET prio = 4 LIKE  absender CONTAINS Schreibb
+   ...> ;
+Error: near "CONTAINS": syntax error
+sqlite> UPDATE nachrichten SET prio = 4 WHERE absender LIKE '%Lem'
+   ...> ;
+sqlite> SELECT * FORM nachrichten;
+Error: near "FORM": syntax error
+sqlite> SELECT * FROM nachrichten;
+1|4|Schreibbüro Lem|account
+2|4|Schreibbüro Lem|fachabteilung
+4|4|Diamant EDV Systeme|account
+sqlite> UPDATE nachrichten SET prio = 1 WHERE absender LIKE 'Diamant%'
+   ...> ;
+sqlite> SELECT * FROM nachrichten;
+1|4|Schreibbüro Lem|account
+2|4|Schreibbüro Lem|fachabteilung
+4|1|Diamant EDV Systeme|account
+sqlite> SELECT * FROM nachrichten ORDER BY PRIO ASC;
+4|1|Diamant EDV Systeme|account
+1|4|Schreibbüro Lem|account
+2|4|Schreibbüro Lem|fachabteilung
+sqlite> 
+
+

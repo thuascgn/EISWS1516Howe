@@ -48,18 +48,29 @@ Es soll eine Struktur zum temporären Speichern und Ausliefern von Nachrichten g
 \item Sie ist auf einem Webserver lauffähig
 \item auf dem passenden Webserver können zügig grundlegende API Funktionen implementiert werden
 \item Speichern von xml/json als Key-Value Par
-\item Eine Abrufpriorisierung der gespeicherten Tupel muss so möglich sein das die Anfrage eines Client mit dem Aufruf /ressource?=next die korrekten Werte erhalten
-\item es soll vermieden werden die Priorisierungsparameter serverseitig in den Aufruf zu injezieren
 \begin{enumerate}
-\item Sortierung der Werte innerhalb der Speicherstruktur
-\item Sortierung durch Veränderung der gespeicherten Werte
+\item Priorisierung der Werte innerhalb der Speicherstruktur
+%\item Sortierung durch Veränderung der gespeicherten Werte
 \end{enumerate}
-\item 
-\item 
 \end{enumerate}
 \noindent
-%
+Erfolgskriterien:
+\begin{enumerate}
+\item Eine Priorisierung der gespeicherten Tupel muss so möglich sein das die Anfrage eines Client mit dem Aufruf /ressource?=next die korrekten Werte erhält ohne die Abfrage selbst zu manipulieren
+%\item Es soll vermeiden exlizit durch alle gespeicherten Tupel zu iterieren und diese zu verändern
+\item Eine Priorisierung sollte nach den Eigenschaften möglich sein: auf- und absteigend nach Eingangszeit, 
+\item Die Priorisierung von 100 Tupeln solte nach 10 Durchläufen im Schnitt nicht länger als 0.1sec dauern
+\end{enumerate}
+\noindent
 
+%
+Fallback Szenario:\\
+Die Priorisierung wird in einem seperaten Bereich/Liste/Tabelle der Datenbank abgelegt die vom Steuerungsclient manipuliert wird.
+Jede Client Anfrage erzeugt einen Abruf dieser Priorisierungsstruktur welche an die Anfrage angehängt und dann ausgeführt wird.\\
+\\
+Alternatives Fallback Szenario:\\
+Für die Priorisierung wird ein explizites Feld im Speicher angelegt. Bei einer Repriorisierung wird über alle gespeicherten Tupel 
+iteriert das Priorisierungsattribut abgefragt und das explizite Feld entsprechend verändert.\\
 %
 \subsection{Regel Engine}
 Es soll ein prototypisches Programm entwickelt werden das die grundlegenden Funktionalitäten der Regel-Engine abbildet und folgende Anforderungen erfüllt:
@@ -71,8 +82,17 @@ Es soll ein prototypisches Programm entwickelt werden das die grundlegenden Funk
 \item die veränderte Datenstruktur wird in einen Ausgabeordner geschrieben
 \end{enumerate}
 \noindent
-%
 
+Erfolgskriterien:\\
+\begin{enumerate}
+\item
+\item  
+\end{enumerate}
+%
+Fallback Szenario:\\
+
+\\
+%
 \subsection{Desktop Clients}
 %
 Es soll ein protoypisches Programm entwickelt mit dem grundlegende Nutzungsanforderungen getestet werden und das folgende Anforderungen erfüllt:
@@ -81,11 +101,7 @@ Es soll ein protoypisches Programm entwickelt mit dem grundlegende Nutzungsanfor
 \item es ist auf der Zielplatform der Clients PC mit Windows Betriebssystem lauffähig
 \item es wird möglichst nativ für die Zielplatform entwickelt
 \item es folgt dem WIMP Paradigma
-\item es sind folgende Interaktionsstile(?)/pattern mit sichtbare Auswirkung der Interaktion möglich
-\begin{enumerate}
-\item Auswahl aus Listen 
-\item Eingabe von Text
-\item Klicken von Schaltflächen
+
 \end{enumerate}
 \item Bonus:
 \begin{enumerate}
@@ -94,7 +110,15 @@ Es soll ein protoypisches Programm entwickelt mit dem grundlegende Nutzungsanfor
 \end{enumerate}
 \noindent
 
+Erfolgskriterien:
+\begin{itemize}
+\item es muüssen folgende Interaktionsstile(?)/pattern möglich sein: Auswahl aus Listen, Eingabe von Text, Klicken von Schaltflächen
+\item zu allen Interaktionen sollen direkt sichtbare Änderungen der dargestellten Information möglich sein
+\end{itemize}
+\noindent
 
+Fallback Szenario:\\
+Die Clients werden als browserbasierte Funktionalität von einem Webserver ausgeliefert
 
 \end{document}
 

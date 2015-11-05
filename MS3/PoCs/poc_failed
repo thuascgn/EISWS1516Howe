@@ -1,0 +1,144 @@
+
+PoC nachrichtendienst
+
+status: fehlgeschlagen
+==================
+
+Script protokoll:
+
+127.0.0.1:6379> ZADD account '{"Absender":"Messebau Schmitz", "rnr":"123456789", "datum":"25.04.2015", "time":"1000000"}'
+(error) ERR wrong number of arguments for 'zadd' command
+127.0.0.1:6379> ZADD account 0 '{"Absender":"Messebau Schmitz", "rnr":"123456789", "datum":"25.04.2015", "time":"1000000"}'
+(integer) 1
+127.0.0.1:6379> ZADD account 1 '{"Absender":"Messebau Howe", "rnr":"456789321", "datum":"15.03.2014", "time":"1000000001"}'
+(integer) 1
+127.0.0.1:6379> ZADD account 0 '{"Absender":"Messebau Schmitz", "rnr":"123456790", "datum":"28.04.2015", "time":"1000010"}'
+(integer) 1
+127.0.0.1:6379> ZADD account 1 '{"Absender":"Autoverleih Seventh", "rnr":"1787ASD234", "datum":"01.05.2015", "time":"1002010"}'
+(integer) 1
+127.0.0.1:6379> ZADD account 2 '{"Absender":"Autoverleih Eigth", "rnr":"1799HG5523X4", "datum":"07.05.2015", "time":"1002150"}'
+(integer) 1
+127.0.0.1:6379> ZCARD account
+(integer) 5
+127.0.0.1:6379> ZINCRBY account 1 "*Messebau"
+"1"
+127.0.0.1:6379> ZINCRBY account 1 "'{"Absender":"Messebau*'"
+Invalid argument(s)
+127.0.0.1:6379> ZSCAN account 0 MATCH *Messebau*
+1) "0"
+2) 1) "{\"Absender\":\"Messebau Howe\", \"rnr\":\"456789321\", \"datum\":\"15.03.2014\", \"time\":\"1000000001\"}"
+   2) "1"
+   3) "{\"Absender\":\"Messebau Schmitz\", \"rnr\":\"123456790\", \"datum\":\"28.04.2015\", \"time\":\"1000010\"}"
+   4) "0"
+   5) "{\"Absender\":\"Messebau Schmitz\", \"rnr\":\"123456789\", \"datum\":\"25.04.2015\", \"time\":\"1000000\"}"
+   6) "0"
+   7) "*Messebau"
+   8) "1"
+127.0.0.1:6379> ZSCAN account 0 MATCH *Howe*
+1) "0"
+2) 1) "{\"Absender\":\"Messebau Howe\", \"rnr\":\"456789321\", \"datum\":\"15.03.2014\", \"time\":\"1000000001\"}"
+   2) "1"
+127.0.0.1:6379> ZSCAN account 0 MATCH *01.05*
+1) "0"
+2) 1) "{\"Absender\":\"Autoverleih Seventh\", \"rnr\":\"1787ASD234\", \"datum\":\"01.05.2015\", \"time\":\"1002010\"}"
+   2) "1"
+127.0.0.1:6379> ZSCAN account MATCH *01.05*
+(error) ERR invalid cursor
+127.0.0.1:6379> ZSCAN account 0 MATCH *01.05*
+1) "0"
+2) 1) "{\"Absender\":\"Autoverleih Seventh\", \"rnr\":\"1787ASD234\", \"datum\":\"01.05.2015\", \"time\":\"1002010\"}"
+   2) "1"
+127.0.0.1:6379> ZSCAN account 1 MATCH *Schmi*
+1) "0"
+2) 1) "{\"Absender\":\"Messebau Schmitz\", \"rnr\":\"123456790\", \"datum\":\"28.04.2015\", \"time\":\"1000010\"}"
+   2) "0"
+   3) "{\"Absender\":\"Messebau Schmitz\", \"rnr\":\"123456789\", \"datum\":\"25.04.2015\", \"time\":\"1000000\"}"
+   4) "0"
+127.0.0.1:6379> ZSCAN account 2 MATCH *Schmi*
+1) "0"
+2) 1) "{\"Absender\":\"Messebau Schmitz\", \"rnr\":\"123456790\", \"datum\":\"28.04.2015\", \"time\":\"1000010\"}"
+   2) "0"
+   3) "{\"Absender\":\"Messebau Schmitz\", \"rnr\":\"123456789\", \"datum\":\"25.04.2015\", \"time\":\"1000000\"}"
+   4) "0"
+127.0.0.1:6379> ZSCAN account 0 MATCH *Schmi*
+1) "0"
+2) 1) "{\"Absender\":\"Messebau Schmitz\", \"rnr\":\"123456790\", \"datum\":\"28.04.2015\", \"time\":\"1000010\"}"
+   2) "0"
+   3) "{\"Absender\":\"Messebau Schmitz\", \"rnr\":\"123456789\", \"datum\":\"25.04.2015\", \"time\":\"1000000\"}"
+   4) "0"
+127.0.0.1:6379> ZRANK account "*Schmi*"
+(nil)
+127.0.0.1:6379> ZRANK account "{"Absender":"Messebau Schmitz"
+Invalid argument(s)
+127.0.0.1:6379> ZRANK account *Messebau
+(integer) 2
+127.0.0.1:6379> KEYS *Schmitz*
+(empty list or set)
+127.0.0.1:6379> KEYS account  *Schmitz*
+(error) ERR wrong number of arguments for 'keys' command
+127.0.0.1:6379> KEYS user:*
+1) "user:1"
+2) "user:3"
+3) "user:2"
+4) "user:4"
+5) "user:5"
+127.0.0.1:6379> ZSCORE set:account *Messebau
+(nil)
+127.0.0.1:6379> ZSCORE account *Messebau
+"1"
+127.0.0.1:6379> eval "return redis.call('get','user:*')" 0
+(nil)
+127.0.0.1:6379> eval "return redis.call('get','user:*')" 
+(error) ERR wrong number of arguments for 'eval' command
+127.0.0.1:6379> eval "return redis.call('get','user:*')"  1
+(error) ERR Number of keys can't be greater than number of args
+127.0.0.1:6379> eval "return redis.call('get','user:*')"  0
+(nil)
+127.0.0.1:6379> eval "return redis.call('keys','user:*')"  0
+1) "user:1"
+2) "user:2"
+3) "user:3"
+4) "user:4"
+5) "user:5"
+127.0.0.1:6379> eval "return redis.call('zscan','account 1 match *Schmi*')"  0
+(error) ERR Error running script (call to f_a0db99c60e60bbf4ca1ef51eee82c8c80b287a8b): @user_script:1: @user_script: 1: Wrong number of args calling Redis command From Lua script 
+127.0.0.1:6379> eval "return redis.call('zscan','account 1 match *Howe*')"  0
+(error) ERR Error running script (call to f_10bfa6d3698278b48f36208f06eccda8d2776026): @user_script:1: @user_script: 1: Wrong number of args calling Redis command From Lua script 
+127.0.0.1:6379> eval "return redis.call('zscan','account 0 match *Howe*')"  0
+(error) ERR Error running script (call to f_ac1988cc05c5baacb367838428cbff9f44f28dd1): @user_script:1: @user_script: 1: Wrong number of args calling Redis command From Lua script 
+127.0.0.1:6379> eval "return redis.call('zscan','account 0 match *Howe*')"  4
+(error) ERR Number of keys can't be greater than number of args
+127.0.0.1:6379> eval "return redis.call('zscan','account 0 match *Howe*')"  3
+(error) ERR Number of keys can't be greater than number of args
+127.0.0.1:6379> eval "return redis.call('zscan','account 0 match *Howe*')"  2
+(error) ERR Number of keys can't be greater than number of args
+127.0.0.1:6379> eval "return redis.call('zscan','account 0 match *Howe*')"  2
+(error) ERR Number of keys can't be greater than number of args
+127.0.0.1:6379> eval "return redis.call('zscan','account 0 match *Howe*')"  1
+(error) ERR Number of keys can't be greater than number of args
+127.0.0.1:6379> eval "return redis.call('zscan','account 0 match *Howe*')"  0
+(error) ERR Error running script (call to f_ac1988cc05c5baacb367838428cbff9f44f28dd1): @user_script:1: @user_script: 1: Wrong number of args calling Redis command From Lua script 
+127.0.0.1:6379> eval "return redis.call('zscan','account 0 match *Howe*')"  0
+
+
+
+
+
+=========================================================================
+=========================================================================
+
+
+# Test DB Zustand
+
+# 	Score 	Value
+0 	0 	{"Absender":"Messebau Schmitz", "rnr":"123456789", "datum":"25.04.2015", "time":"1000000"}
+1 	0 	{"Absender":"Messebau Schmitz", "rnr":"123456790", "datum":"28.04.2015", "time":"1000010"}
+2 	1 	*Messebau
+3 	1 	{"Absender":"Autoverleih Seventh", "rnr":"1787ASD234", "datum":"01.05.2015", "time":"1002010"}
+4 	1 	{"Absender":"Messebau Howe", "rnr":"456789321", "datum":"15.03.2014", "time":"1000000001"}
+5 	2 	{"Absender":"Autoverleih Eigth", "rnr":"1799HG5523X4", "datum":"07.05.2015", "time":"1002150"}
+
+
+
+
+
