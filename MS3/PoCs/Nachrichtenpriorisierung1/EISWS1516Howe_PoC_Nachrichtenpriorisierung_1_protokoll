@@ -24,6 +24,8 @@ Script protokoll:
 "1"
 127.0.0.1:6379> ZINCRBY account 1 "'{"Absender":"Messebau*'"
 Invalid argument(s)
+127.0.0.1:6379> ZINCRBY account 1 MATCH "{\"Absender\":\"Messebau"
+(error) ERR wrong number of arguments for 'zincrby' command
 127.0.0.1:6379> ZSCAN account 0 MATCH *Messebau*
 1) "0"
 2) 1) "{\"Absender\":\"Messebau Howe\", \"rnr\":\"456789321\", \"datum\":\"15.03.2014\", \"time\":\"1000000001\"}"
@@ -76,30 +78,10 @@ Invalid argument(s)
 (empty list or set)
 127.0.0.1:6379> KEYS account  *Schmitz*
 (error) ERR wrong number of arguments for 'keys' command
-127.0.0.1:6379> KEYS user:*
-1) "user:1"
-2) "user:3"
-3) "user:2"
-4) "user:4"
-5) "user:5"
 127.0.0.1:6379> ZSCORE set:account *Messebau
 (nil)
 127.0.0.1:6379> ZSCORE account *Messebau
 "1"
-127.0.0.1:6379> eval "return redis.call('get','user:*')" 0
-(nil)
-127.0.0.1:6379> eval "return redis.call('get','user:*')" 
-(error) ERR wrong number of arguments for 'eval' command
-127.0.0.1:6379> eval "return redis.call('get','user:*')"  1
-(error) ERR Number of keys can't be greater than number of args
-127.0.0.1:6379> eval "return redis.call('get','user:*')"  0
-(nil)
-127.0.0.1:6379> eval "return redis.call('keys','user:*')"  0
-1) "user:1"
-2) "user:2"
-3) "user:3"
-4) "user:4"
-5) "user:5"
 127.0.0.1:6379> eval "return redis.call('zscan','account 1 match *Schmi*')"  0
 (error) ERR Error running script (call to f_a0db99c60e60bbf4ca1ef51eee82c8c80b287a8b): @user_script:1: @user_script: 1: Wrong number of args calling Redis command From Lua script 
 127.0.0.1:6379> eval "return redis.call('zscan','account 1 match *Howe*')"  0

@@ -41,25 +41,225 @@ hidelinks=false
 %
 \section{Proof of Concepts - Dokumentation}
 %
-\subsection{PoC Prio 1 : Nachrichtenpriorisierung}
+\subsection{Regel-Engine}
+
+\paragraph*{Datenstrukturen}
+Es wurden zunächst grundlegende Datenstrukturen im xml Format entwickelt um die Dokumentdaten, Regelbedingungen und Regelattributierungen in das Programm einzulesen und das Ergebnis zu Speichern. Dabei wurde unter Beachtung der strategischen Ziele angestrebt mithilfe der Anwedungsdomaene die Komplexität der Datenstruktur möglichst anzunähern.
+
+Dokumentdaten, data.xml, wird auch für den Export genutzt\\
+\begin{verbatim}
+
+\end{verbatim}
+
+Regelbedingungen, conditions.xml
+\begin{verbatim}
+
+\end{verbatim}
+
+Attributierungen, attributions.xml
+\begin{verbatim}
+
+\end{verbatim}
+
+\paragraph*{Entwicklung \& Programmablauf}
+Das Programm wurde entlang der spezifizierten Anforderungen im .NET Framework entwickelt und nutzt die Bibliotheken System.IO, System.Thread und System.IO.Xml. 
+
+\begin{enumerate}
+\item es wird in einem Intervall auf in einem Importverzeichnis auf neu importierte Verzeichnisse gehorcht, wenn eine
+\item falls ein Verzeichnis importiert wird, werden die Informationen der darin enthaltenen data.xml, conditions.xml und attributions.xml jeweils in eigenständige \verb+List<string attribut, string wert>+ Strukturen überführt
+\item Die Dokumentdaten werden auf die Regelbedingungen überprüft
+\begin{itemize}
+\item das Attribut Volltext wird darauf geprüft ob es den Bedingungsstring enthält
+\item alle anderen Attribute werden auf exakte Übereinstimmung geprüft
+\end{itemize}
+\item wenn die Bedingungen zutreffen werden Dokumentdaten und Attributierungen in eine Export Struktur zusammengeführt
+\item die Exportstruktur wird als \verb+\\Export\\guid\data.xml+ gespeichert
+\item wieder zu Schritt 1
+\end{enumerate}
+
+
+
+\paragraph*{Anforderungserfüllung}
 %
 \begin{center}
-\begin{tabular}{| p{15mm} | p{30mm} | p{50mm} | p{50mm} | p{15mm} |}
+\begin{tabular}{| p{20mm} | p{80mm} | p{60mm} |}
 \hline
-Nr. & Aktion & Ziel Systemreaktion/Zustand & tatsächliche Systemreaktion -zustand & Erfüllt\\
+Nr. & Anforderung & Anforderungen erfüllt\\
+1 & das Programm horcht auf einen Importverzeichnis & ja\\
 \hline
-n & ... & ... & ... & ... \\
+2 & wenn ein neues Quellverzeichnis im Importverzeichnis vorhanden ist, werden, sehr zeitnah, die enthaltenen xml Dateien eingelesen & ja\\
+\hline
+3 & die für eine Regelanwendung nötige Anzahl der zu importierenden Dateien wird verarbeitet & ja, es werden data.xml, conditions.xml und attributions.xml verarbeitet\\
+\hline
+4 & Ausgangsdaten werden in entsprechende Datenstrukturen überführt & ja, es wird die eine Struktur \verb+List<string Attribut, string Wert>+ genutzt\\
+\hline
+5 & Attributierungen werden korrekt nach Regelbedingungen ausgeführt & ja\\
+\hline
+6 & die Exportdatenstruktur wird als xml Datei in einem eigenen Verzeichnis in einem Exportverzeichnis gespeichert & ja, in \verb+\\Export\guid\data.xml+ \\
+\hline
+7 & das Importverzeichnis der verarbeiteten Dateien wird gelöscht & ja \\
+%n & ... & ... & ... & ... \\
 \hline
 \end{tabular}
 \end{center}
-Screenshots Schritte(?)\\
-Fazit: PoC erfüllt welche Kriterien in welchem Ausmaß
+\paragraph*{Fazit:} Der PoC erfüllt alle spezifizierten Anforderungen. Für die prototypische Realisierung müssen weitere Test insbesondere mit unvollständigen, fehlerhaften und konfliktären Dateneingaben durchgeführt werden. Ebenfalls sollte das Programms in einer besseren Klassenstruktur organisiert werden und es muss evaluiert werden eine andere Importstruktur als Verzeichnisse, zb. komprimierte Archiv-Dateien, zu nutzen.
+\paragraph*{Quellcode: } \href{}{github.com/thuascgn/EISWS1516/MS3/PoCs/RegelEngine}
 
-\subsection{PoC Prio 2}
-%
 
-\subsection{PoC Prio 3}
+\subsection{Desktop Client}
 %
+\paragraph*{Programmentwicklung}
+Zum Test wurde ein Programm nach dem WIMP Paradigma nativ für die Windows Plattform unter Verwendung des .Net Frameworks in der Entwicklungsumgebung Visual Studio 
+von Microsoft entwickelt. 
+%q todo in Begruendung Um Zugriff auf möglichst weitgehend unterstützt und aktuelle Möglichkeiten zur Entwicklung einer graphischen Benutzerschnittstelle zu sichern wurde 
+Als grundlegenede Basis Struktur wurde ein Template für die WCF Windows Communication Foundation gewählt mit einem Model View Struktur.\\
+In der Entwicklungsumgebung können Interaktionselemente der graphischen Benutzungsschnittstelle per Eingabe in eine xml Struktur definiert oder per Drag \& Drop aus der enthaltenen Standardbibliothek in das angelegte Programm importiert werden. Beide Möglichekeiten wurden genutzt.\\
+Auch bei der Zuweisung von Methoden zu den Interaktionselementen wurden zwei Verfahren genutzt, erstens über Doppelklick auf ein Element in der graphischen Ansicht. Daraufhin 
+wird automatisch ein Methodenkopf im Controller definiert und dem zuvor doppelgeklickten Element als Methode bei einem Klick Ereignis zugewiesen. In der angelegten Methode kann dann der Code geschrieben werden kann. Die zweite Möglichkeit ist, zunächst eine Methode zu schreiben und diese Methode den Ereignislistenern der Elemente zuzuweisen. Auf diese ist es möglich ein Methode 
+an unterschiedliche Interaktionslemente zu binden wenn diese ein ähnliches oder gleiches Verhalten aufweisen sollen.
+
+%
+\paragraph*{Anforderungserfüllung}
+\begin{center}
+\begin{tabular}{| p{20mm} | p{80mm} | p{60mm} |}
+\hline
+Nr. & Anforderung & Anforderungen erfüllt\\
+\hline
+1 & das Programm ist auf der Zielplatform der Clients PC mit Windows Betriebssystem lauffähig  & ja\\
+\hline
+2 & es folgt dem WIMP Paradigma & ja\\
+\hline
+3 & Interaktion soll mit folgenden Interaktionselementen möglich sein &  \\
+ &  Buttons (Schaltflächen) & ja \\
+ &  Formulareingabe von Text und Zahlen & ja  \\
+ &  Checkboxen & ja \\
+ &  Radiobuttons & ja \\
+ &  Auswahl aus DropDown Menus & ja \\
+\hline
+4 & Zusammenführung und Ausgabe  & ja, Ausgabefeld das die eingegebenen Daten zusammengeführt ausgibt \\
+\hline
+\end{tabular}
+\end{center}
+%
+\paragraph*{Status:} durchgeführt
+\paragraph*{Fazit:} Der PoC erfüllt alle Anforderungen. Aufbauend auf diesem PoC sollte zudem der \href{}{PoC Clientkommunikation} durchgeführt werden.
+\paragraph*{Quellcode: } \href{}{}
+
+%
+%
+\subsection{Nachrichtenpriorisierung}
+%
+Um die ersten beiden Kriterien zu erfüllen wurde die Datenbank Redis ausgewählt. Desweiteren bietet Redis mit Sorted Sets eine native Datenstruktur bei der Wert Strings nach einem zugewiesenen Wert , dem Score, priorisiert werden. Es wurde daraufhin versucht mittels Kommandoeingabe im Shellprogramm der Datenbank schrittweise die gewünschten Bedingungen zu erreichen. Dies zeigen die folgenden Ausschnitten des Shell Protokolls.
+
+\paragraph*{1. Anlegen einer simplen Sorted Set Datenstruktur}
+\begin{verbatim}
+127.0.0.1:6379> ZADD account 0 '{"Absender":"Messebau Schmitz", "rnr":"123456789", 
+				"datum":"25.04.2015", "time":"1000000"}'
+(integer) 1
+127.0.0.1:6379> ZADD account 1 '{"Absender":"Messebau Howe", "rnr":"456789321", 
+				"datum":"15.03.2014", "time":"1000000001"}'
+(integer) 1
+127.0.0.1:6379> ZADD account 0 '{"Absender":"Messebau Schmitz", "rnr":"123456790", 
+				"datum":"28.04.2015", "time":"1000010"}'
+(integer) 1
+127.0.0.1:6379> ZADD account 1 '{"Absender":"Autoverleih Seventh", "rnr":"1787ASD234", 
+				"datum":"01.05.2015", "time":"1002010"}'
+(integer) 1
+127.0.0.1:6379> ZADD account 2 '{"Absender":"Autoverleih Eigth", "rnr":"1799HG5523X4", 
+				"datum":"07.05.2015", "time":"1002150"}'
+(integer) 1
+				127.0.0.1:6379> ZCARD account
+(integer) 5
+\end{verbatim}
+Eine simple Struktur wurde mittels ZADD angelegt und die Anzahl mit ZCRAD überprüft.
+
+%
+\paragraph*{2. Testen der Möglichkeiten der Erhöhung der Scores}
+\begin{verbatim}
+127.0.0.1:6379> ZINCRBY account 1 "*Messebau"
+"1"
+127.0.0.1:6379> ZINCRBY account 1 "'{"Absender":"Messebau*'"
+Invalid argument(s)
+127.0.0.1:6379> ZINCRBY account 1 MATCH "{\"Absender\":\"Messebau"
+(error) ERR wrong number of arguments for 'zincrby' command
+127.0.0.1:6379> ZSCAN account 0 MATCH *Messebau*
+1) "0"
+2) 1) "{\"Absender\":\"Messebau Howe\", \"rnr\":\"456789321\", \"datum\":\"15.03.2014\", 
+		\"time\":\"1000000001\"}"
+   2) "1"
+   3) "{\"Absender\":\"Messebau Schmitz\", \"rnr\":\"123456790\", \"datum\":\"28.04.2015\", 
+   		\"time\":\"1000010\"}"
+   4) "0"
+   5) "{\"Absender\":\"Messebau Schmitz\", \"rnr\":\"123456789\", \"datum\":\"25.04.2015\", 
+   		\"time\":\"1000000\"}"
+   6) "0"
+   7) "*Messebau"
+   8) "1"
+\end{verbatim}
+Die Rückgabe der der ersten beiden Kommandos macht folgende Eigenschaften deutlich: ZINCRBY akzeptiert weder explizite noch impliziten Regex Ausdrücke und die Erhöhung eines Scores ist mit einen Teilstring nicht möglich. Über einen Teilstring können mittels Regex nur die zugehörigen Werte ermittelt werden. Daraus folgt das für eine Veränderung der Priorisierung über die Scores mittels der Kommandos ZINCRBY und ZDECRBY der vollständige Wert, in diesem Fall die vollständige Nachricht, explizit verwaltet, priorisiert und wieder gespeichert werden muss. Damit werden die Bedingungen 3., 5.1 und 5.2 verletzt und dieser PoCs muss als fehlgeschlagen betrachtet werde.
+
+\paragraph*{3. Skripting}
+Redis ermöglicht auch die Eingabe von gescripteten Kommandos. Im zugehörigen Protokoll kann eingesehen werden das ein par Versuche unternommen sich dem Problem per Skripting zu nähern. Schnell wurde jedoch deutlich das auch auf diese Weise der ein erheblicher expliziter Priorisierungsaufwand vonnöten sein würde. Die Möglichkeit des Skriptings wurde verworfen, und POCs bleibt fehlgeschlagen.
+
+
+\paragraph*{Anforderungserfüllung}
+\begin{center}
+\begin{tabular}{| p{20mm} | p{80mm} | p{60mm} |}
+\hline
+Nr. & Anforderung & Anforderungen erfüllt\\
+1 & es soll eine In-Memory Datenbank verwendet werden & ja \\
+2 & um größeren Einarbeitungsaufwand zu vermeiden muss die Datenbank den Projektdurchführenden bekannt sein & ja, Redis war durch WBA2 bekannt \\
+3 & die Priorisieung soll nach Attributen der Nachrichten mit dem Datentyp String möglich sein & nein\\
+4 & Priorisierung und Abfrage durch einen Client müssen voneinander gekapselt sein & ja\\
+4.1 & die Priorisierung der Nachrichten darf nicht in die Verarbeitung der Anfrage eines Client injiziert werden & ja \\
+4.2 & bei der Verarbeitung einer Client Anfrage sollte vor der Abfrage der Datenstruktur keine separate Priorisierungsstruktur angefragt werden & ja\\
+5 & die Datenbank muss adäquate Auswahl- und Sortierungsoperationen zur Verfügung stellen, insbesondere muss vermieden werden für die Priorisierung & teilweise \\
+5.1 & eine eigenständig Struktur zur Sortierung entwickeln zu müssen & nein \\
+5.2 & explizit durch alle Nachrichten zu iterieren und die gespeicherten Nachrichten zu verändern & nein \\
+\hline
+\end{tabular}
+\end{center}
+%
+\paragraph*{Status:} fehlgeschlagen
+\paragraph*{Fazit:} Der PoC erfüllt nicht alle Anforderungen, insbesondere die Nichterfüllung der Bedingungen 5.1 und 5.2 gilt als Ausschlusskriterium
+\paragraph*{Quellcode/Protokoll: } \href{}{}
+
 
 \end{document}
 
+%
+%
+\subsection{Nachrichtenpriorisierung 2}
+
+Als Alternativszenario zum PoC Nachrichtenpriorisierung wird versucht, mit leicht veränderten Anforderungen, eine Lösung des PoCs mit dem Datenbanksystem SQLITE3 
+zu erreichen.
+%
+\paragraph*{Anforderungserfüllung}
+\begin{center}
+\begin{tabular}{| p{20mm} | p{80mm} | p{60mm} |}
+\hline
+Nr. & Anforderung & Anforderungen erfüllt\\
+\hline
+\end{tabular}
+\end{center}
+%
+\paragraph*{Status: durchgeführt, protokolliert, noch nicht vollständig dokumentiert}
+\paragraph*{Fazit:}
+\paragraph*{Quellcode: } \href{}{}
+
+%
+%
+\subsection{Client Kommunikation}
+%
+\paragraph*{Anforderungserfüllung}
+\begin{center}
+\begin{tabular}{| p{20mm} | p{80mm} | p{60mm} |}
+\hline
+Nr. & Anforderung & Anforderungen erfüllt\\
+\hline
+\end{tabular}
+\end{center}
+%
+\paragraph*{Status: noch nicht durchgeführt}
+\paragraph*{Fazit:}
+\paragraph*{Quellcode: } \href{}{}

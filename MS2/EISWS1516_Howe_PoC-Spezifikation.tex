@@ -38,87 +38,125 @@ hidelinks=false
 %
 
 \begin{document}
+
+\begin{comment}
+Die Proof of Concepts lassen sich evtl. aus den Risiken ableiten. Für die Spezifizierung der Proof of Concepts müssen jeweils Exit- und Failkriterien beschrieben werden. D.h. es werden konkrete Bedingungen spezifiziert, die besagen in welchem Fall ein Proof of Concept als "erfolgreich" oder als "nicht erfolgreich" gilt. Falls ein Proof of Concept gescheitert ist, muss man sich im Vorfeld Alternativen/Fallbacks überlegen, die anstelle der ursprünglich angedachten Vorgehensweise herangezogen werden könnten. Die Durchführung eines Proof of Concepts muss dokumentiert werden. 
+\end{comment}
+
+
 %
 \section{Proof of Concepts - Spezifikation}
 %
-\subsection{Nachrichtenpriorisierung}
-Es soll eine Struktur zum temporären Speichern und Ausliefern von Nachrichten gefunden werden welche die folgende Anforderungen erfüllt:
-
-\begin{enumerate}
-\item Sie ist auf einem Webserver lauffähig
-\item auf dem passenden Webserver können zügig grundlegende API Funktionen implementiert werden
-\item Speichern von xml/json als Key-Value Par
-\begin{enumerate}
-\item Priorisierung der Werte innerhalb der Speicherstruktur
-%\item Sortierung durch Veränderung der gespeicherten Werte
-\end{enumerate}
-\end{enumerate}
-\noindent
-Erfolgskriterien:
-\begin{enumerate}
-\item Eine Priorisierung der gespeicherten Tupel muss so möglich sein das die Anfrage eines Client mit dem Aufruf /ressource?=next die korrekten Werte erhält ohne die Abfrage selbst zu manipulieren
-%\item Es soll vermeiden exlizit durch alle gespeicherten Tupel zu iterieren und diese zu verändern
-\item Eine Priorisierung sollte nach den Eigenschaften möglich sein: auf- und absteigend nach Eingangszeit, 
-\item Die Priorisierung von 100 Tupeln solte nach 10 Durchläufen im Schnitt nicht länger als 0.1sec dauern
-\end{enumerate}
-\noindent
-
-%
-Fallback Szenario:\\
-Die Priorisierung wird in einem seperaten Bereich/Liste/Tabelle der Datenbank abgelegt die vom Steuerungsclient manipuliert wird.
-Jede Client Anfrage erzeugt einen Abruf dieser Priorisierungsstruktur welche an die Anfrage angehängt und dann ausgeführt wird.\\
-\\
-Alternatives Fallback Szenario:\\
-Für die Priorisierung wird ein explizites Feld im Speicher angelegt. Bei einer Repriorisierung wird über alle gespeicherten Tupel 
-iteriert das Priorisierungsattribut abgefragt und das explizite Feld entsprechend verändert.\\
 %
 \subsection{Regel Engine}
-Es soll ein prototypisches Programm entwickelt werden das die grundlegenden Funktionalitäten der Regel-Engine abbildet und folgende Anforderungen erfüllt:
 
+Um sicherzustellen das die grundlegende Funktionalität eines Alleinstellungsmerkmals, der Regel Engine, gewährleistet ist soll ein prototypisches Programm entwickelt werden das die grundlegenden Funktion der Regel-Engine abbildet.\\
+Dazu werden aus einem Eingabeverzeichnis zwei oder drei xml Dateien mit Dokumentdaten, Regelbedingungen und Attributierungen eingelesen. Deren Inhalte werden auf eine Datenstruktur abgebildet und miteinander verglichen. Abhängig vom Vergleich wird eine zu Exportdatenstruktur gefüllt, verändert und darauf in einen Ausgabeordner geschrieben.
+\\
+Anforderungen:
 \begin{enumerate}
-\item es muss aus einem Eingabeordner xml und/oder json Dateien eingelesen werden
-\item die Informationen dieser Dateien werden auf eine Datenstruktur abgebildet
-\item abhängig vom Informationen wird die Datenstruktur verändert
-\item die veränderte Datenstruktur wird in einen Ausgabeordner geschrieben
+\item das Programm horcht auf einen Importverzeichnis
+\item wenn ein neues Quellverzeichnis im Importverzeichnis vorhanden ist, werden, sehr zeitnah, die enthaltenen xml Dateien eingelesen
+\item die für eine Regelanwendung nötige Anzahl der zu importierenden Dateien wird verarbeitet
+\item Ausgangsdaten werden in entsprechende Datenstrukturen überführt
+\item Attributierungen werden korrekt nach Regelbedingungen ausgeführt
+\item die Exportdatenstruktur wird als xml Datei in einem eigenen Verzeichnis in einem Exportverzeichnis gespeichert
+\item die Importverzeichnis der verarbeiteten Dateien wird gelöscht
 \end{enumerate}
 \noindent
-
-Erfolgskriterien:\\
-\begin{enumerate}
-\item
-\item  
-\end{enumerate}
-%
+Erfolgskriterium: Erfüllungsgrad der Anforderungen\\
 Fallback Szenario:\\
-
-\\
+Da die automatisierte Regelanwendung eine Kernfunktionalität des Systems ist, gibt es keine adäquate funktionale Alternative. Lediglich bei der Verarbeitung der Datenstrukturen von Ausgangsdaten, Regelbedingunen und Attributierungen könnten alternative Lösungen entwickelt werden.
+%
 %
 \subsection{Desktop Clients}
 %
-Es soll ein protoypisches Programm entwickelt mit dem grundlegende Nutzungsanforderungen getestet werden und das folgende Anforderungen erfüllt:
-
+Es soll ein protoypisches Programm für den WIMP Interaktionsstil entwickelt werden mit dem sichergestellt wird das bei der Implementierung wichtiger Pattern, zb. nach Tidwell \href{}{}, 
+und Stile eine grundlegende Menge an Interaktionselementen ohne technische Probleme genutzt werden kann.
+\\
+Anforderungen:
 \begin{enumerate}
-\item es ist auf der Zielplatform der Clients PC mit Windows Betriebssystem lauffähig
-\item es wird möglichst nativ für die Zielplatform entwickelt
+\item das Programm ist auf der Zielplatform der Clients PC mit Windows Betriebssystem lauffähig
 \item es folgt dem WIMP Paradigma
-
-\end{enumerate}
-\item Bonus:
+\item Interaktion soll mit folgenden Interaktionselementen möglich sein:
 \begin{enumerate}
-\item das Programm interagiert mit einem Webserver mit HTTP Methoden GET und POST Methoden
+\item Buttons (Schaltflächen)
+\item Formularein von Text und Zahlen 
+\item Checkboxen
+\item Radiobuttons
+\item Auswahl aus Listen
+\item Auswahl aus DropDown Menus
 \end{enumerate}
+\item die interagierende Person soll auf Klick eines Buttons eine Zusammenfassung seiner Eingabe erhalten, dies dient als Simulation der Zusammenführung der Daten die der Client an ein anderes System sendet
 \end{enumerate}
 \noindent
+Erfolgskriterium: Erfüllungsgrad der Anforderungen\\
+Fallback Szenario:\\
+Die Clients werden als browserbasierte Funktionalität von einem Webserver ausgeliefert.
+%
+%
+\subsection{Nachrichtenpriorisierung}
+Zur Sicherung der wichtigen Funktionalität der Nachrichtenpriorisierung soll eine Struktur zum Speichern und Abrufen von Nachrichten gefunden werden die eine Priorisierung der gespeicherten Nachrichten ermöglicht.
 
 Erfolgskriterien:
-\begin{itemize}
-\item es muüssen folgende Interaktionsstile(?)/pattern möglich sein: Auswahl aus Listen, Eingabe von Text, Klicken von Schaltflächen
-\item zu allen Interaktionen sollen direkt sichtbare Änderungen der dargestellten Information möglich sein
-\end{itemize}
+\begin{enumerate}
+\item es soll eine In-Memory Datenbank verwendet werden
+\item um größeren Einarbeitungsaufwand zu vermeiden muss die Datenbank den Projektdurchführenden bekannt sein
+\item die Priorisieung soll nach Attributen der Nachrichten mit dem Datentyp String möglich sein
+\item Priorisierung und Abfrage durch einen Client müssen voneinander gekapselt sein, genauer
+\begin{enumerate}
+\item die Priorisierung der Nachrichten darf nicht in die Verarbeitung der Anfrage eines Client injiziert werden
+\item bei der Verarbeitung einer Client Anfrage sollte vor der Abfrage der Datenstruktur keine separate Priorisierungsstruktur angefragt werden
+\end{enumerate}
+\item die Datenbank muss adäquate Auswahl- und Sortierungsoperationen zur Verfügung stellen, insbesondere muss vermieden werden für die Priorisierung 
+\begin{enumerate}
+\item eine eigenständig Struktur zur Sortierung entwickeln zu müssen und
+\item explizit durch alle Nachrichten zu iterieren und die gespeicherten Nachrichten zu verändern
+\end{enumerate}
+\item ...
+\end{enumerate}
 \noindent
 
+Erfolgskriterium: Erfüllungsgrad der Anforderungen\\
+%
 Fallback Szenario:\\
-Die Clients werden als browserbasierte Funktionalität von einem Webserver ausgeliefert
+Die Priorisierung wird über ein SQL Variante realisiert, wobei in Kauf genommen wird das diese nicht unbedingt mit überschaubarem Aufwand als 
+In-Memory Datenbank betrieben werden kann.
+
+ 
+%
+%
+\subsection{Client Kommunikation}
+
+Der im PoC Desktop Cilent entwickelt e Client sollte mit einer Web Api kommunizieren können.
+
+\begin{itemize}
+\item das Programm interagiert mit einem Webserver HTTP Methoden GET und POST Methoden
+\end{enumerate}
+\end{enumerate}
+
+%
+%
+\subsection{Nachrichtenpriorisierung 2}
+Es wird eine mit einer SQL Variante die Anforderungen an die Priorisierung der Nachrichtenstruktur getestet.
+
+Erfolgskriterien:
+\begin{enumerate}
+\item es kann eine In-Memory Datenbank verwendet werden
+\item um größeren Einarbeitungsaufwand zu vermeiden muss die Datenbank den Projektdurchführenden bekannt sein
+\item Priorisierung und Abfrage durch einen Client müssen voneinander gekapselt sein, genauer
+\begin{enumerate}
+\item die Priorisierung der Nachrichten darf nicht in die Verarbeitung der Anfrage eines Client injiziert werden
+\item bei der Verarbeitung einer Client Anfrage sollte vor der Anfrage keine seperate Priorisierungsstruktur angefragt werden
+\end{enumerate}
+\end{enumerate}
+\noindent
+%
+Erfolgskriterien: Erfüllungsgrad der Anforderungen\\
+%
+%
+Fallback Szenario:\\
+
 
 \end{document}
 
