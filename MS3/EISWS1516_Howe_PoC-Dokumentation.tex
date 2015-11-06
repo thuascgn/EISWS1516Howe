@@ -46,19 +46,44 @@ hidelinks=false
 \paragraph*{Datenstrukturen}
 Es wurden zunächst grundlegende Datenstrukturen im xml Format entwickelt um die Dokumentdaten, Regelbedingungen und Regelattributierungen in das Programm einzulesen und das Ergebnis zu Speichern. Dabei wurde unter Beachtung der strategischen Ziele angestrebt mithilfe der Anwedungsdomaene die Komplexität der Datenstruktur möglichst anzunähern.
 
-Dokumentdaten, data.xml, wird auch für den Export genutzt\\
+Dokumentdaten, data.xml, wird für Import der Dokumentdaten und Export der attributierten Daten genutzt\\
 \begin{verbatim}
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<Data>
+    <Absender>bs-umzuege</Absender>
+    <Volltext>NR 784121254, 12 x Arbeitsstunden, Fahrten Köln 275km a 38EUR, 
+    				a 200</Volltext>
+    <BelegNr>R772015458</BelegNr>
+    <AbteilungNr></AbteilungNr>
+    <Abteilung></Abteilung>
+    <Verantwortlicher></Verantwortlicher>
+    <Kostenstelle></Kostenstelle>
+    <Sachkonto></Sachkonto>
+    <Datum>15.10.2015</Datum>
+    <Eingang>111100024545</Eingang>
+</Data>
 \end{verbatim}
 
 Regelbedingungen, conditions.xml
 \begin{verbatim}
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<Conditions>
+    <Absender>bs-umzuege</Absender>
+    <Volltext>NR 784121254</Volltext>
+    <BelegNr>R772015458</BelegNr>
+</Conditions>
 \end{verbatim}
 
 Attributierungen, attributions.xml
 \begin{verbatim}
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<Attributions>
+    <AbteilungNr>125</AbteilungNr>
+    <Abteilung>Logistik</Abteilung>
+    <Verantwortlicher>Susanne Schmadtke</Verantwortlicher>
+    <Kostenstelle>5058</Kostenstelle>
+    <Sachkonto>12444</Sachkonto>
+</Attributions>
 \end{verbatim}
 
 \paragraph*{Entwicklung \& Programmablauf}
@@ -103,7 +128,7 @@ Nr. & Anforderung & Anforderungen erfüllt\\
 \end{tabular}
 \end{center}
 \paragraph*{Fazit:} Der PoC erfüllt alle spezifizierten Anforderungen. Für die prototypische Realisierung müssen weitere Test insbesondere mit unvollständigen, fehlerhaften und konfliktären Dateneingaben durchgeführt werden. Ebenfalls sollte das Programms in einer besseren Klassenstruktur organisiert werden und es muss evaluiert werden eine andere Importstruktur als Verzeichnisse, zb. komprimierte Archiv-Dateien, zu nutzen.
-\paragraph*{Quellcode: } \href{}{github.com/thuascgn/EISWS1516/MS3/PoCs/RegelEngine}
+\paragraph*{Quellcode: } \href{https://github.com/thuascgn/EISWS1516Howe/tree/master/MS3/PoCs/RegelEngine}{...EISWS1516/MS3/PoCs/RegelEngine}
 
 
 \subsection{Desktop Client}
@@ -112,7 +137,7 @@ Nr. & Anforderung & Anforderungen erfüllt\\
 Zum Test wurde ein Programm nach dem WIMP Paradigma nativ für die Windows Plattform unter Verwendung des .Net Frameworks in der Entwicklungsumgebung Visual Studio 
 von Microsoft entwickelt. 
 %q todo in Begruendung Um Zugriff auf möglichst weitgehend unterstützt und aktuelle Möglichkeiten zur Entwicklung einer graphischen Benutzerschnittstelle zu sichern wurde 
-Als grundlegenede Basis Struktur wurde ein Template für die WCF Windows Communication Foundation gewählt mit einem Model View Struktur.\\
+Als grundlegenede Basis Struktur wurde ein Template mit einer Model View Struktur für die Windows Presentation Foundation gewählt.\\
 In der Entwicklungsumgebung können Interaktionselemente der graphischen Benutzungsschnittstelle per Eingabe in eine xml Struktur definiert oder per Drag \& Drop aus der enthaltenen Standardbibliothek in das angelegte Programm importiert werden. Beide Möglichekeiten wurden genutzt.\\
 Auch bei der Zuweisung von Methoden zu den Interaktionselementen wurden zwei Verfahren genutzt, erstens über Doppelklick auf ein Element in der graphischen Ansicht. Daraufhin 
 wird automatisch ein Methodenkopf im Controller definiert und dem zuvor doppelgeklickten Element als Methode bei einem Klick Ereignis zugewiesen. In der angelegten Methode kann dann der Code geschrieben werden kann. Die zweite Möglichkeit ist, zunächst eine Methode zu schreiben und diese Methode den Ereignislistenern der Elemente zuzuweisen. Auf diese ist es möglich ein Methode 
@@ -143,7 +168,7 @@ Nr. & Anforderung & Anforderungen erfüllt\\
 %
 \paragraph*{Status:} durchgeführt
 \paragraph*{Fazit:} Der PoC erfüllt alle Anforderungen. Aufbauend auf diesem PoC sollte zudem der \href{}{PoC Clientkommunikation} durchgeführt werden.
-\paragraph*{Quellcode: } \href{}{}
+\paragraph*{Quellcode: } \href{https://github.com/thuascgn/EISWS1516Howe/tree/master/MS3/PoCs/DesktopClient}{.../EISWS1516Howe/tree/master/PoCs/DesktopClient}
 
 %
 %
@@ -222,7 +247,7 @@ Nr. & Anforderung & Anforderungen erfüllt\\
 %
 \paragraph*{Status:} fehlgeschlagen
 \paragraph*{Fazit:} Der PoC erfüllt nicht alle Anforderungen, insbesondere die Nichterfüllung der Bedingungen 5.1 und 5.2 gilt als Ausschlusskriterium
-\paragraph*{Quellcode/Protokoll: } \href{}{}
+\paragraph*{Quellcode/Protokoll: } \href{https://github.com/thuascgn/EISWS1516Howe/tree/master/MS3/PoCs/Nachrichtenpriorisierung1}{...EISWS1516Howe/tree/master/MS3/PoCs/Nachrichtenpriorisierung1}
 
 
 \end{document}
@@ -243,9 +268,9 @@ Nr. & Anforderung & Anforderungen erfüllt\\
 \end{tabular}
 \end{center}
 %
-\paragraph*{Status: durchgeführt, protokolliert, noch nicht vollständig dokumentiert}
+\paragraph*{Status: durchgeführt, protokolliert, noch nicht dokumentiert}
 \paragraph*{Fazit:}
-\paragraph*{Quellcode: } \href{}{}
+\paragraph*{Quellcode: } \href{https://github.com/thuascgn/EISWS1516Howe/tree/master/MS3/PoCs/Nachrichtenpriorisierung2}{...EISWS1516Howe/tree/master/MS3/PoCs/Nachrichtenpriorisierung2}
 
 %
 %
@@ -262,4 +287,4 @@ Nr. & Anforderung & Anforderungen erfüllt\\
 %
 \paragraph*{Status: noch nicht durchgeführt}
 \paragraph*{Fazit:}
-\paragraph*{Quellcode: } \href{}{}
+\paragraph*{Quellcode: } \href{https://github.com/thuascgn/EISWS1516Howe/tree/master/MS3/PoCs/ClientKommunikation}{...EISWS1516Howe/tree/master/MS3/PoCs/ClientKommunikation}

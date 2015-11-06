@@ -1,0 +1,6 @@
+c:\users\bocanaut\documents\visual studio 2015\Projects\SimpleImportTest\SimpleImportTest\bin\Debug\SimpleImportTest.exe.config
+c:\users\bocanaut\documents\visual studio 2015\Projects\SimpleImportTest\SimpleImportTest\bin\Debug\SimpleImportTest.exe
+c:\users\bocanaut\documents\visual studio 2015\Projects\SimpleImportTest\SimpleImportTest\bin\Debug\SimpleImportTest.pdb
+c:\users\bocanaut\documents\visual studio 2015\Projects\SimpleImportTest\SimpleImportTest\obj\Debug\SimpleImportTest.csprojResolveAssemblyReference.cache
+c:\users\bocanaut\documents\visual studio 2015\Projects\SimpleImportTest\SimpleImportTest\obj\Debug\SimpleImportTest.exe
+c:\users\bocanaut\documents\visual studio 2015\Projects\SimpleImportTest\SimpleImportTest\obj\Debug\SimpleImportTest.pdb
