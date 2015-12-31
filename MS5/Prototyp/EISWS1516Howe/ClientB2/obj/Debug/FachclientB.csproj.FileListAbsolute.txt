@@ -1,0 +1,14 @@
+C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe_GUI_Protypes\FachclientB\bin\Debug\FachclientB.exe.config
+C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe_GUI_Protypes\FachclientB\bin\Debug\FachclientB.exe
+C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe_GUI_Protypes\FachclientB\bin\Debug\FachclientB.pdb
+C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe_GUI_Protypes\FachclientB\obj\Debug\FachclientB.csprojResolveAssemblyReference.cache
+C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe_GUI_Protypes\FachclientB\obj\Debug\MainWindow.g.cs
+C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe_GUI_Protypes\FachclientB\obj\Debug\App.g.cs
+C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe_GUI_Protypes\FachclientB\obj\Debug\FachclientB_MarkupCompile.cache
+C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe_GUI_Protypes\FachclientB\obj\Debug\FachclientB_MarkupCompile.lref
+C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe_GUI_Protypes\FachclientB\obj\Debug\MainWindow.baml
+C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe_GUI_Protypes\FachclientB\obj\Debug\FachclientB.g.resources
+C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe_GUI_Protypes\FachclientB\obj\Debug\FachclientB.Properties.Resources.resources
+C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe_GUI_Protypes\FachclientB\obj\Debug\FachclientB.csproj.GenerateResource.Cache
+C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe_GUI_Protypes\FachclientB\obj\Debug\FachclientB.exe
+C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe_GUI_Protypes\FachclientB\obj\Debug\FachclientB.pdb

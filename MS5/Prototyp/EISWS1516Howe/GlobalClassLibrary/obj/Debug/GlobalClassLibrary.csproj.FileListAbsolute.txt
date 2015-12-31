@@ -1,0 +1,6 @@
+c:\users\tim\documents\visual studio 2015\Projects\EISWS1516Howe\GlobalClassLibrary\bin\Debug\GlobalClassLibrary.dll
+c:\users\tim\documents\visual studio 2015\Projects\EISWS1516Howe\GlobalClassLibrary\bin\Debug\GlobalClassLibrary.pdb
+c:\users\tim\documents\visual studio 2015\Projects\EISWS1516Howe\GlobalClassLibrary\obj\Debug\GlobalClassLibrary.dll
+c:\users\tim\documents\visual studio 2015\Projects\EISWS1516Howe\GlobalClassLibrary\obj\Debug\GlobalClassLibrary.pdb
+C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe\GlobalClassLibrary\bin\Debug\MySql.Data.dll
+C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe\GlobalClassLibrary\obj\Debug\GlobalClassLibrary.csprojResolveAssemblyReference.cache
