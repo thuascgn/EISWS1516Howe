@@ -1,0 +1,105 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "Task",
+	"type": "object",
+	"Task":{
+		"title": "Task",
+		"type": "object",
+		"properties":{
+			"id": {
+				"description": "Eindeutiger Bezeichner des Tasks",
+				"type": "number",
+			},
+			"queue":{
+				"description": "Bezeichner der zugewiesenen Message Queue",
+				"type": "string"
+			},
+			"priority":{
+				"description": "Priorität die diesem Task zugeordnet ist",
+				"type": "number"
+				/* minvalue=0 - max value=255, default 255*/
+			},
+			"islocked":{
+				"description": "Angabe ob dieser Task aktuell bearbeitet wird",
+				"type": "boolean"
+			},
+			"document":{
+				"description": "Dokumentdaten die für diesen Task verwendet werden", 
+				"type": "object",
+				"properties":{
+						/* <
+						* ggf redundant
+						*/
+						"guid":{
+							"description": "Eindeutiger Bezeichner über Systemgrenzen hinaus",
+							"type": "string"
+						},
+						"sender":{
+							"description": "Absender des Dokuments",
+							"type": "string"
+						},
+						/*
+						* ggf redundant />
+						*/
+						"number":{
+							"description": "Eindeutige Belegnummer des Absenders",
+							"type": "string"
+						},
+						"accountingtext":{
+							"description": "Ausgelesener Volltext des buchhalterisch relevanten Teils des Dokuments",
+							"type": "string"
+						}
+					}
+				},
+			"rule":{
+				"description":"Regeldaten die in diesem Task verwendet werden.",
+				"type": "object",
+				"properties":{
+					"conditions":{
+						"description": "Bedingungen die für diese Regel erfüllt sein müssen",
+						"properties":{
+							"Sender":{
+								"description": "Absender des Dokuments",
+								"type": "string"
+							},
+							"keywordDocumentNumber":{
+								"description": "Zeichenkette die in der Belegnummer enthalten sein muss",
+								"type": "string"
+							},
+							"KeywordAccountingText":{
+								"description": "Zeichenkette die im Volltext enthalten sein muss",
+								"type": "string"
+							}
+						}
+					},
+					"attributions":{
+						"description": "Attribute die zugewiesen werden können",
+						"type": "object",
+						"properties":{
+							"department":{
+								"description": "Abteilung",
+								"type": "string"
+							},
+							"project":{
+								"description": "Projektnummer",
+								"type": "number"
+							},
+							"contactpersorn":{
+								"description": "Verantwortliche Kontanktperson",
+								"type": "string"
+							},
+							"account":{
+								"description": "Sachkonto",
+								"type": "string"
+							},
+							"costcenter":{
+								"description": "Kostenstelle",
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
