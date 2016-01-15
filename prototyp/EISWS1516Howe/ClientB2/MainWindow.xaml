@@ -1,0 +1,48 @@
+﻿<Window x:Class="ClientB2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientB2"
+        mc:Ignorable="d"
+        Title="Client B2" Height="542" Width="532" Initialized="Window_Initialized" Loaded="Window_Loaded">
+    <Grid Margin="0,0,0,0">
+        <!-- Status & Einstellungen -->
+        <TextBlock x:Name="tbStatus" HorizontalAlignment="Left" Margin="100,6,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Button x:Name="btnLoadStatus" Content="Status Laden" HorizontalAlignment="Left" Margin="0,3,0,0" VerticalAlignment="Top" Height="24" Width="75" ToolTip="Aktuellen Status laden" Click="btnLoadStatus_Click"/>
+        <Button x:Name="btnLoad" Content="Rechnung Laden" HorizontalAlignment="Left" Margin="0,29,0,0" VerticalAlignment="Top" Height="24" Width="524" ToolTip="Neues Dokument zur Attributierung laden" Click="btnLoad_Click"/>
+        <ProgressBar x:Name="progressBar" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top" Width="524" Height="12" Background="White" Foreground="#FF0B9925" ToolTip=" x von y "/>
+        <!-- Dok Info -->
+        <Label x:Name="lblDocument" Content="Dokument" HorizontalAlignment="Left" Margin="5,79,0,0" VerticalAlignment="Top" Width="140" Height="26"/>
+        <Label x:Name="lblDepartment" Content="Abteilung" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65" Margin="10,293,0,0" Height="26"/>
+        <Label x:Name="lblSender" Content="Absender" HorizontalAlignment="Left" Margin="15,104,0,0" VerticalAlignment="Top" Height="25" Width="60"/>
+        <TextBox x:Name="tbSender" HorizontalAlignment="Left" Height="25" Margin="160,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="347"/>
+        <Label x:Name="lblAccountingText" Content="Rechnungstext" HorizontalAlignment="Left" Margin="20,203,0,0" VerticalAlignment="Top" Height="27" Width="103"/>
+        <TextBox x:Name="tbAccountingText" HorizontalAlignment="Left" Height="50" Margin="160,203,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="347"/>
+
+        <!-- Regeln -->
+        <Label x:Name="lblAccountingData" Content="Buchungsdaten" HorizontalAlignment="Left" Margin="5,322,0,0" VerticalAlignment="Top" Width="140" Height="26"/>
+        <Label x:Name="lblProject" Content="Projekt" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="15,347,0,0" Height="24"/>
+        <Label x:Name="lblAccount" Content="Sachkonto" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="15,407,0,0" Height="24"/>
+        <Label x:Name="lblCostcenter" Content="Kostenstelle" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="15,437,0,0" Height="26"/>
+        <Label x:Name="lblProjectContact" Content="Projektverantwortlicher" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="15,377,0,0" Height="26"/>
+
+        <!-- Aktionen -->
+        <Button x:Name="btnCancel" Content="Abbrechen" HorizontalAlignment="Left" Margin="0,483,0,0" VerticalAlignment="Top" Width="100" Height="24" Click="btnCancel_Click"/>
+        <Button x:Name="btnForward" Content="An abc weiterleiten" HorizontalAlignment="Left" Margin="100,483,0,0" VerticalAlignment="Top" Width="212" Height="24" Click="btnForward_Click"/>
+        <Button x:Name="btnSave" Content="Speichern" HorizontalAlignment="Left" Margin="312,483,0,0" VerticalAlignment="Top" Width="212" Height="24" Click="btnSave_Click"/>
+
+
+        <ComboBox x:Name="combDepartment" HorizontalAlignment="Left" Margin="160,293,0,0" VerticalAlignment="Top" Width="347" Height="23" SelectionChanged="combDepartment_SelectionChanged"/>
+        <ComboBox x:Name="combProject" HorizontalAlignment="Left" Margin="160,347,0,0" VerticalAlignment="Top" Width="347" Height="23"/>
+        <ComboBox x:Name="combAccount" HorizontalAlignment="Left" Margin="160,407,0,0" VerticalAlignment="Top" Width="347" Height="23"/>
+        <ComboBox x:Name="combCostCenter" HorizontalAlignment="Left" Margin="160,437,0,0" VerticalAlignment="Top" Width="347" Height="23"/>
+        <ComboBox x:Name="combProjectContact" HorizontalAlignment="Left" Margin="160,377,0,0" VerticalAlignment="Top" Width="347" Height="23"/>
+        <Label x:Name="lblKeycharsDocumentNumber" Content="Schlüsselzeichen" HorizontalAlignment="Left" Margin="28,164,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
+        <TextBox x:Name="tbKeycharsDocumentNumber" HorizontalAlignment="Left" Height="23" Margin="160,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="347"/>
+        <Label x:Name="lblKeywordAccountingText" Content="Schlüsselwort" HorizontalAlignment="Left" Margin="33,258,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
+        <TextBox x:Name="tbKeywordAccountingText" HorizontalAlignment="Left" Height="23" Margin="160,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="347"/>
+        <Label x:Name="lblSender_Copy" Content="Belegnummer" HorizontalAlignment="Left" Margin="15,135,0,0" VerticalAlignment="Top" Height="29" Width="120"/>
+        <TextBox x:Name="tbDocumentNumber" HorizontalAlignment="Left" Height="25" Margin="160,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="347"/>
+    </Grid>
+</Window>

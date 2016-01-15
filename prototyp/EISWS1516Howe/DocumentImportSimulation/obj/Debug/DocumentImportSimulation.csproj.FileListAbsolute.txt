@@ -1,0 +1,8 @@
+C:\Users\tim\Documents\Visual Studio 2015\Projects\EISWS1516Howe\DocumentImportSimulation\bin\Debug\DocumentImportSimulation.exe.config
+C:\Users\tim\Documents\Visual Studio 2015\Projects\EISWS1516Howe\DocumentImportSimulation\bin\Debug\DocumentImportSimulation.exe
+C:\Users\tim\Documents\Visual Studio 2015\Projects\EISWS1516Howe\DocumentImportSimulation\bin\Debug\DocumentImportSimulation.pdb
+C:\Users\tim\Documents\Visual Studio 2015\Projects\EISWS1516Howe\DocumentImportSimulation\bin\Debug\GlobalClassLibrary.dll
+C:\Users\tim\Documents\Visual Studio 2015\Projects\EISWS1516Howe\DocumentImportSimulation\bin\Debug\GlobalClassLibrary.pdb
+C:\Users\tim\Documents\Visual Studio 2015\Projects\EISWS1516Howe\DocumentImportSimulation\obj\Debug\DocumentImportSimulation.exe
+C:\Users\tim\Documents\Visual Studio 2015\Projects\EISWS1516Howe\DocumentImportSimulation\obj\Debug\DocumentImportSimulation.pdb
+C:\Users\tim\Documents\Visual Studio 2015\Projects\EISWS1516Howe\DocumentImportSimulation\obj\Debug\DocumentImportSimulation.csprojResolveAssemblyReference.cache
