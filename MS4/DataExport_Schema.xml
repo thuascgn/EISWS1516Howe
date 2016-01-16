@@ -5,17 +5,15 @@
 			<xs:sequence>
 				<xs:element name="Guid" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="Path" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="Document">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="Absender" 	type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="Belegnummer" 	type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="Datum" 		type="ds:date" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="Volltext" 	type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Sender" 	type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Number" 	type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="AccountingText" 	type="xs:string" minOccurs="1" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -23,9 +21,9 @@
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="Abteilungsnummer" type="xs:decimal" 	minOccurs="1" maxOccurs="1"/>
-				<xs:element name="Abteilung" 		type="xs:string" 	minOccurs="1" maxOccurs="1"/>
-				<xs:element name="Projektnummer" 	type="xs:decimal" 	minOccurs="0" maxOccurs="1"/>
-				<xs:element name="Projekt" 			type="xs:string" 	minOccurs="0" maxOccurs="1"/>
+				<xs:element name="Department" 		type="xs:string" 	minOccurs="1" maxOccurs="1"/>
+				<!--<xs:element name="Projektnummer" 	type="xs:decimal" 	minOccurs="0" maxOccurs="1"/>-->
+				<xs:element name="Project" 			type="xs:string" 	minOccurs="0" maxOccurs="1"/>
 				<xs:element name="Verantwortlicher" type="xs:string" 	minOccurs="0" maxOccurs="1"/>
 				<xs:element name="Kostenstelle" 	type="xs:string" 	minOccurs="0" maxOccurs="1"/>
 				<xs:element name="Sachkonto" 		type="xs:string" 	minOccurs="0" maxOccurs="1"/>

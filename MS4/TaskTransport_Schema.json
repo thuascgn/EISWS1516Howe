@@ -58,7 +58,7 @@
 					"conditions":{
 						"description": "Bedingungen die für diese Regel erfüllt sein müssen",
 						"properties":{
-							"Sender":{
+							"sender":{
 								"description": "Absender des Dokuments",
 								"type": "string"
 							},
@@ -66,7 +66,7 @@
 								"description": "Zeichenkette die in der Belegnummer enthalten sein muss",
 								"type": "string"
 							},
-							"KeywordAccountingText":{
+							"keywordAccountingText":{
 								"description": "Zeichenkette die im Volltext enthalten sein muss",
 								"type": "string"
 							}
