@@ -1,28 +1,34 @@
 
 
-== Prototyp ==
+**Prototyp**
 
 
-**Quellcode**
-Gesamtprojekt Ordner: /EISWS1516Howe
+Quellcode: 
+
+Gesamtprojekt Ordner: [/EISWS1516Howe](https://github.com/thuascgn/EISWS1516Howe/tree/master/prototyp/EISWS1516Howe)
 
 Die Projektdatei kann mit Visual Studio 2015 Community Edition geöffnet und die Projektprogramme ausgeführt werden
 [visualstudio.com](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
 
 
-**Webserver**
-IIS Express 7.0
+
+Webserver
+
+IIS Express 7.0 [iis.net](https://www.iis.net/)
 
 
-**Datenbank**
+Datenbank:
+
 MySql, Version 5.7.x / 5.7.9-log [mysql.com](http://dev.mysql.com/downloads/mysql/)
 Script zum Anlegen von Schema und Tabellen: create_schemes-tables.sql
 
 
-**Dienstnehmer**
+Dienstnehmer:
+
 Auf Windows ausführbare Release binary /bin/Attributionsclient.exe
 
 
-**Dienstgeber**
+Dienstgeber:
+
 Für die Dienste konnten noch keine ausführbaren Dateien erstellt werden
 
