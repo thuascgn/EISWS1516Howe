@@ -1,1 +1,0 @@
-c:\users\tim\documents\visual studio 2015\Projects\GUI_Prototypes\GUI_Prototypes\bin\Debug\GUI_Prototypes.exe.config

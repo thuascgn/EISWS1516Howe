@@ -1,7 +1,0 @@
-C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe\DocumentImportSimulation\bin\Release\DocumentImportSimulation.exe.config
-C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe\DocumentImportSimulation\bin\Release\DocumentImportSimulation.exe
-C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe\DocumentImportSimulation\bin\Release\DocumentImportSimulation.pdb
-C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe\DocumentImportSimulation\bin\Release\GlobalClassLibrary.dll
-C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe\DocumentImportSimulation\bin\Release\GlobalClassLibrary.pdb
-C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe\DocumentImportSimulation\obj\Release\DocumentImportSimulation.exe
-C:\Users\tim\documents\visual studio 2015\Projects\EISWS1516Howe\DocumentImportSimulation\obj\Release\DocumentImportSimulation.pdb

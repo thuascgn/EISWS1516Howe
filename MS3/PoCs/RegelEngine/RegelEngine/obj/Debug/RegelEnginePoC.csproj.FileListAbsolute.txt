@@ -1,6 +1,0 @@
-C:\Users\bocanaut\Documents\Visual Studio 2015\Projects\SimpleImportTest\SimpleImportTest\bin\Debug\SimpleImportTest.exe.config
-C:\Users\bocanaut\Documents\Visual Studio 2015\Projects\SimpleImportTest\SimpleImportTest\obj\Debug\SimpleImportTest.exe
-C:\Users\bocanaut\Documents\Visual Studio 2015\Projects\SimpleImportTest\SimpleImportTest\obj\Debug\SimpleImportTest.pdb
-C:\Users\bocanaut\Documents\Visual Studio 2015\Projects\SimpleImportTest\SimpleImportTest\bin\Debug\SimpleImportTest.exe
-C:\Users\bocanaut\Documents\Visual Studio 2015\Projects\SimpleImportTest\SimpleImportTest\bin\Debug\SimpleImportTest.pdb
-C:\Users\bocanaut\Documents\Visual Studio 2015\Projects\SimpleImportTest\SimpleImportTest\obj\Debug\RegelEnginePoC.csprojResolveAssemblyReference.cache
